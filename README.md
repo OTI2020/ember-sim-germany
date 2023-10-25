@@ -1,11 +1,12 @@
-> Bundespolizei/nh ©
+> image source: Bundespolizei/nh ©
 <p align="center">
   <img src="https://github.com/OTI2020/ember-sim-germany/blob/main/images/Bundespolizei-nh.png" alt="ember-sim-germany" width="400" height="auto">
 </p>
 
 # ember-sim-germany
 
-WebApp for simulations of forest-fire (or ember) spreads with models for forests in Germany.
+WebApp to simulate the spread of forest-fire (or ember) with models for forests in Germany. 
+Tool for education and civil servants.
 
 [![GitHub Sterne](https://img.shields.io/github/stars/OTI2020/ember-sim-germany?style=flat-square)](https://github.com/OTI2020/ember-sim-germany)
 [![GitHub Forks](https://img.shields.io/github/forks/oti2020/ember-sim-germany?style=flat-square)](https://github.com/oti2020/ember-sim-germany/network)
