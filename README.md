@@ -1,6 +1,6 @@
-###### ember-sim-germany
+###### Bundespolizei/nh ©
 <p align="center">
-  <img src="[Titelbild](./images/bundespolizei-nh.png)" alt="ember-sim-germany" width="400" height="auto">
+  <img src="https://github.com/OTI2020/ember-sim-germany/blob/main/images/Bundespolizei-nh.png" alt="ember-sim-germany" width="400" height="auto">
 </p>
 
 # ember-sim-germany
