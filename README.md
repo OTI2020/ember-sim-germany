@@ -44,6 +44,6 @@ Encourage other developers to contribute to your project. Give instructions on h
 ---
 
 ## License
-
-Specify the license of your project and link to the license file, if available.
+MIT-License
+- see [here](https://github.com/OTI2020/ember-sim-germany/blob/main/LICENSE)
 ---
