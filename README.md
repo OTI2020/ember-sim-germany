@@ -12,7 +12,7 @@ Tool for education and civil servants.
 [![GitHub Forks](https://img.shields.io/github/forks/oti2020/ember-sim-germany?style=flat-square)](https://github.com/oti2020/ember-sim-germany/network)
 [![GitHub Probleme](https://img.shields.io/github/issues/oti2020/ember-sim-germany?style=flat-square)](https://github.com/oti2020/ember-sim-germany/issues)
 [![GitHub Pull-Anfragen](https://img.shields.io/github/issues-pr/oti2020/ember-sim-germany?style=flat-square)](https://github.com/oti2020/ember-sim-germany/pulls)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/oti2020/ember-sim-germany)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/oti2020/ember-sim-germany?style=flat-square)
 `[![SourceForge Commit Count](https://img.shields.io/github/commit-count/oti2020/ember-sim-germany?style=flat-square)](https://github.com/oti2020/ember-sim-germany/)`
 [![GitHub Lizenz](https://img.shields.io/github/license/oti2020/ember-sim-germany?style=flat-square)](https://github.com/oti2020/ember-sim-germany/blob/main/LICENSE)
 
