@@ -26,7 +26,7 @@ Inspiration: Project for Australia:
 
 ## Demo
 
-Info about Live-Domo
+* Info about Live-Domo
 ---
 
 ## Installation
@@ -36,16 +36,14 @@ Info about Live-Domo
 
 ## Useage
 
-How the project gets used and code samples
+* How the project gets used and code samples
 ---
 
 ## Contribution
-Do you want to expend the project?
-Great choice!
-See Istallation first and then read the - Encourage other developers to contribute to your project. Give instructions on how to set up the development environment and submit contributions.
+* Do you want to expend the project? Great choice! See Istallation first and then read the - Encourage other developers to contribute to your project. Give instructions on how to set up the development environment and submit contributions.
 ---
 
 ## License
-MIT-License
+### MIT-License
 - see [here](https://github.com/OTI2020/ember-sim-germany/blob/main/LICENSE)
 ---
