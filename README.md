@@ -18,8 +18,8 @@ Tool for education and civil servants.
 
 ## About
 
-Inspiration: Original Project for Australia:
-[Ember-sim-Australia](http://ember-sim.s3-website-ap-southeast-2.amazonaws.com/)
+Inspiration: Project for Australia:
+[Ember-Simulation-Australia](http://ember-sim.s3-website-ap-southeast-2.amazonaws.com/)
 
 ---
 
@@ -39,8 +39,9 @@ How the project gets used and code samples
 ---
 
 ## Contribution
-
-Encourage other developers to contribute to your project. Give instructions on how to set up the development environment and submit contributions.
+Do you want to expend the project?
+Great choice!
+See Istallation first and then read the - Encourage other developers to contribute to your project. Give instructions on how to set up the development environment and submit contributions.
 ---
 
 ## License
