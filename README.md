@@ -44,6 +44,5 @@ Inspiration: Project for Australia:
 ---
 
 ## License
-### MIT-License
-- see [here](https://github.com/OTI2020/ember-sim-germany/blob/main/LICENSE)
+- MIT-License: see [here](https://github.com/OTI2020/ember-sim-germany/blob/main/LICENSE)
 ---
