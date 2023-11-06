@@ -1,4 +1,4 @@
-> image source: Bundespolizei/nh ©
+> Ember Sim
 <p align="center">
   <img src="https://github.com/OTI2020/ember-sim-germany/blob/main/images/head-animation.gif" alt="ember-sim-germany" width="400" height="auto">
 </p>
