@@ -70,6 +70,8 @@ Inspiration: Project for Australia:
       - X (?)
       - Y (?)
 
+
+TODO: find out which parameters the user needs to konfigurate to run the simulation. And which parameters have provided default values?
 ---
 
 ## Demo
