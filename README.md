@@ -71,7 +71,7 @@ Inspiration: Project for Australia:
       - Y (?)
 
 
-TODO: find out which parameters the user needs to konfigurate to run the simulation. And which parameters have provided default values?
+* TODO: find out which parameters the user needs to konfigurate to run the simulation. And which parameters have provided default values?
 ---
 
 ## Demo
