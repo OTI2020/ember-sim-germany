@@ -32,12 +32,15 @@ window.Models.simpleSpreadRateModel = (SimpleSpreadRateModel = class SimpleSprea
 window.Models.McArthurSpreadRateModel = (McArthurSpreadRateModel = class McArthurSpreadRateModel {
   
   calculate_spread_rate(point, t0, t1) {
-    const kbdi = point.param('VEGETATION', 'KBDI');
+    // const kbdi = point.param('VEGETATION', 'KBDI');
+    const kbdi = point.param('VEGETATION', 150);
     
     if (!kbdi) { return; }
     
-    const p = point.param('RAIN', 'precipitation');
-    const n = point.param('RAIN', 'days_since_rain');
+//    const p = point.param('RAIN', 'precipitation');
+    const p = point.param('RAIN', 5);
+//    const n = point.param('RAIN', 'days_since_rain');
+    const n = point.param('RAIN', 14);
     
     const d1 = ( 0.191 * (kbdi + 104) * Math.pow(n+1, 1.5) );
     const d2 = ( ((3.52 * Math.pow(n+1, 1.5)) + p) - 1 );
@@ -45,15 +48,19 @@ window.Models.McArthurSpreadRateModel = (McArthurSpreadRateModel = class McArthu
     const d = d1 / d2;
     //d = Math.min(d, 10.0)
 
-    const u = point.param('WIND', 'speed_2m');
+//    const u = point.param('WIND', 'speed_2m');
+    const u = point.param('WIND', 20);
     
-    const rh = point.param('ATMOSPHERE', 'humidity');
-    const t = point.param('ATMOSPHERE', 'temperature');
+//    const rh = point.param('ATMOSPHERE', 'humidity');
+    const rh = point.param('ATMOSPHERE', 50);
+//    const t = point.param('ATMOSPHERE', 'temperature');
+    const t = point.param('ATMOSPHERE', 30);
     const mc = (5.658 + (0.04651 * rh) + ((0.0003151 * Math.pow(rh,3)) / t)) - (0.185 * Math.pow(t, 0.77));
     const ffdi = 34.81 * Math.exp(0.987*Math.log(d))*Math.pow(mc,-2.1)*Math.exp(0.0234*u);
     
     // fuel load
-    const w = point.param('VEGETATION', 'w');
+//    const w = point.param('VEGETATION', 'w');
+    const w = point.param('VEGETATION', 1);
     
     return point.spread_rate = 0.0012 * ffdi * w;
   }
@@ -62,13 +69,17 @@ window.Models.McArthurSpreadRateModel = (McArthurSpreadRateModel = class McArthu
 window.Models.CheneySpreadRateModel = (CheneySpreadRateModel = class CheneySpreadRateModel {
   
   calculate_spread_rate(point, t0, t1) {
-    const grazing = point.param('VEGETATION', 'grazing');
+//    const grazing = point.param('VEGETATION', 'grazing');
+    const grazing = point.param('VEGETATION', 0);
 
     if (grazing == null) { return; }
     
-    const u = point.param('WIND', 'speed_2m');
-    const c = point.param('VEGETATION', 'C');
-    const mc = point.param('VEGETATION', 'FMC');
+//    const u = point.param('WIND', 'speed_2m');
+    const u = point.param('WIND', 20);
+//    const c = point.param('VEGETATION', 'C');
+    const c = point.param('VEGETATION', 100);
+//    const mc = point.param('VEGETATION', 'FMC');
+    const mc = point.param('VEGETATION', 2.0);
     
     const dm = mc < 12 ?
       Math.exp(-0.108*mc)
