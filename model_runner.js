@@ -1,10 +1,8 @@
-/*
- * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
- * DS102: Remove unnecessary code created because of implicit returns
- * DS202: Simplify dynamic range loops
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/main/docs/suggestions.md
- */
+function startCalculation() {
+  console.log("Start calculation");
+}
+
+
 let ModelRunner, Point;
 if (!window.Models) { window.Models = {}; }
 
