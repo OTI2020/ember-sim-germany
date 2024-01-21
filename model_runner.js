@@ -1,8 +1,3 @@
-function startCalculation() {
-  console.log("Start calculation");
-}
-
-
 let ModelRunner, Point;
 if (!window.Models) { window.Models = {}; }
 
