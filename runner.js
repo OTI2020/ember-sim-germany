@@ -2,11 +2,11 @@ function startCalculation() {
     console.log("start calculation");
 
     const modelRunner = initModelRunner();
-
+/*
     for (let i = 0; i < 5; i++) {
         // modelRunner.step();
-        console.log(i);
-    }
+        console.log("step " + i);
+    }*/
 }
 
 function initModelRunner() {
@@ -20,16 +20,20 @@ function initModelRunner() {
         parameters: {
             EXTENTS: { x: 10, y: 10 },
             RESOLUTION: { x: 1, y: 1, t: 1 },
-            SIMULATION: { steps: 10 },
+            SIMULATION: { steps: 15 },
             TOPOGRAPHY: { flat: true }
         }
     };
 
     modelRunner.grid = initGrid(modelRunner);
 
+    console.log("Type of modelRunner: " + typeof modelRunner);
+    console.log("modelRunner data: " + modelRunner);
     return modelRunner;
 }
 
+// grid is an array of arrays of the objects point
+// grid is spatial and represents a 2d map
 function initGrid(modelRunner) {
     console.log("init grid");
     const grid = [];
@@ -43,6 +47,8 @@ function initGrid(modelRunner) {
         grid.push(row);
     }
 
+    console.log("Type of grid: " + typeof grid);
+    console.log("grid data: " + grid);
     return grid;
 }
 
