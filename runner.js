@@ -3,8 +3,9 @@ function startCalculation() {
 
     const modelRunner = initModelRunner();
 
-    for (let i = 0; i < 10; i++) {
-        modelRunner.step();
+    for (let i = 0; i < 5; i++) {
+        // modelRunner.step();
+        console.log(i);
     }
 }
 
@@ -60,6 +61,7 @@ function initPoint(index, position, runner) {
         },
 
         param(group_name, parameter) {
+            console.log(group_name + " and " + parameter);
         },
 
         clean() {
