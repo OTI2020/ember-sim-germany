@@ -27,24 +27,24 @@
 
             <div id="grasslandOptions">
                 <label for="fmc">FMC (double):</label>
-                <input type="number" id="fmc" step="0.01" required>
+                <input type="number" id="fmc" step="0.01" value="false" required>
 
                 <label for="c">C:</label>
-                <input type="number" id="c" step="0.01" required>
+                <input type="number" id="c" step="0.01" value="100" required>
 
                 <label for="grazing">grazing:</label>
-                <input type="number" id="grazing" step="0.01" required>
+                <input type="number" id="grazing" step="0.01" value="0" required>
             </div>
 
             <div id="forestOptions">
                 <label for="treatment">Treatment:</label>
-                <input type="text" id="treatment">
+                <input type="text" id="treatment" value="none">
 
                 <label for="kbdi">KBDI:</label>
-                <input type="number" id="kdbi" step="0.01" required>
+                <input type="number" id="kdbi" step="0.01" min="0" max="200" value="150" required>
 
                 <label for="w">w:</label>
-                <input type="number" id="w" step="0.01" required>
+                <input type="number" id="w" step="0.01" value="1" required>
             </div>
         </div>
 
@@ -64,10 +64,10 @@
             <h3>Wind</h3>
             <!-- direction -->
             <label for="windDirection">Wind Direction (degrees to North):</label>
-            <input type="number" id="windDirection" min="0" max="360" required>
+            <input type="number" id="windDirection" min="0" max="360" value="180" required>
             <!-- speed -->
             <label for="windSpeed">2min Wind Speed (km/h):</label>
-            <input type="number" id="windSpeed" step="0.01" required>
+            <input type="number" id="windSpeed" step="0.01" value="20" required>
         </div>
 
         <div id="atmosphere">
@@ -75,20 +75,20 @@
             <h3>Atmosphere</h3>
             <!-- temperature -->
             <label for="airTemperature">Air Temperature (°C):</label>
-            <input type="number" id="airTemperature" required>
+            <input type="number" id="airTemperature" value="35" required>
             <!-- air humidity -->
             <label for="relativeHumidity">Relative Humidity (%):</label>
-            <input type="number" id="relativeHumidity" required>
+            <input type="number" id="relativeHumidity" value="50" required>
         </div>
 
         <div id="rain">
             <!-- Rain Parameters -->
             <h3>Rain</h3>
             <label for="precipitation">Precipitation (mm):</label>
-            <input type="number" id="precipitation" required>
+            <input type="number" id="precipitation" value="5" required>
 
             <label for="daysSinceRain">Days Since Rain (days):</label>
-            <input type="number" id="daysSinceRain" required>
+            <input type="number" id="daysSinceRain" value="14" required>
         </div>
 
         <div id="ignition">
@@ -101,7 +101,7 @@
             <!-- Simulation Parameters -->
             <h3>Simulation</h3>
             <label for="simulationSteps">Configure Simulation Steps (at least 1):</label>
-            <input type="number" id="simulationSteps" min="1" required>
+            <input type="number" id="simulationSteps" min="1" value="15" required>
             <!-- models -->
             <!-- propagation models could be selected automaticly in dependency to selected type of vegetation-->
         </div>
