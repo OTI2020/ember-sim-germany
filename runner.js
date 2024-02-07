@@ -96,6 +96,5 @@ function neighbours(point, modelRunner) {
             if (n) point.neighbours.push(n);
         }
     }
-
     return point.neighbours;
 }
