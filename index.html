@@ -5,19 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Testing</title>
-    <script src="runner.js"></script>
     <script src="manage_input_form_options.js"></script>
-    <script src="sample_vegetation_grid_for_testing.js"></script>
-    <script src="model_runner.js"></script>
-    <script src="propagation_models.js"></script>
-    <script src="spread_rate_models.js"></script>
+    <script src="sample_vegetation_grid_for_testing.js"></script> 
+    <script src="propagation_model_with_dummy_data.js"></script>
+    <script src="runner.js"></script
 </head>
 
 <body>
-    <h1>Try to run the JS-Code</h1>
-    <button onclick="startCalculation()">Start calculation with dummy Data</button>
     <h1>Ember Simulation in Germany</h1>
-
     <h2>Wildfire Simulation Parameters</h2>
     <form id="simulationForm">
         <div id="selectVegetation">
@@ -100,7 +95,7 @@
             <h3>Ignition Points</h3>
             <!-- later in the map, but here is dummy data -->
             <label for="ignitionPoints">A Dummy Ignition Point</label>
-            <input type="text" id="ignitionPoints" value="{{(-35.62), 148.85, 500, 345}}" required>
+            <input type="text" id="ignitionPoints" value="{51.96950838698576, 7.596003472260846}" required>
             <p>lat,lng,x,y</p>
         </div>
 
@@ -108,7 +103,7 @@
             <!-- Simulation Parameters -->
             <h3>Simulation</h3>
             <label for="simulationSteps">Configure Simulation Steps (at least 1):</label>
-            <input type="number" id="simulationSteps" min="1" value="15" required>
+            <input type="number" id="simulationSteps" min="1" value="5" required>
             <!-- models -->
             <!-- propagation models could be selected automaticly in dependency to selected type of vegetation-->
         </div>
@@ -119,10 +114,8 @@
             <p>not directly editable ??</p>
         </div>
 
-
-
         <!-- Submit Button -->
-        <button type="button" onclick="simulateWildfire()">Calculate Wildfire Simulation</button>
+        <button onclick="startCalculation()">Start calculation with dummy Data</button>
     </form>
 </body>
 
