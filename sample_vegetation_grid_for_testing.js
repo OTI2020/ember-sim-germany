@@ -15,4 +15,4 @@ const sampleVegetationGrid = [
     [1, 1, 0, 0, 1, 1, 1, 1, 0, 0]
 ];
 
-console.log(sampleVegetationGrid);
+// console.log(sampleVegetationGrid);
