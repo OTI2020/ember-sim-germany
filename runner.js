@@ -1,14 +1,17 @@
 function startCalculation() {
-    console.log("start calculation");
+    console.log("load input for parameters")
+    loadInput();
+    console.log("start calculation")
 
-    const modelRunner = initModelRunner();
-/*
+    const modelRunner = null //initModelRunner();
+    /*
     for (let i = 0; i < 5; i++) {
         // modelRunner.step();
         console.log("step " + i);
-    }*/
+    }
+    */
 }
-
+/*
 function initModelRunner() {
     const modelRunner = {
         spread_rate_model: null,
@@ -17,6 +20,7 @@ function initModelRunner() {
         grid: null,
         t0: 0,
         t_index: 0,
+
         parameters: {
             EXTENTS: { x: 10, y: 10 },
             RESOLUTION: { x: 1, y: 1, t: 1 },
@@ -98,3 +102,4 @@ function neighbours(point, modelRunner) {
     }
     return point.neighbours;
 }
+*/
