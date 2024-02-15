@@ -1,7 +1,9 @@
 function startCalculation() {
     console.log("start calculation");
+    const arrivaltime_test = 0.5;
+    cellularAutomaton()
 
-    const modelRunner = initModelRunner();
+    // const modelRunner = initModelRunner();
 /*
     for (let i = 0; i < 5; i++) {
         // modelRunner.step();
@@ -9,6 +11,13 @@ function startCalculation() {
     }*/
 }
 
+function cellularAutomaton(arrivaltime_test) {
+    console.log("cells...");
+}
+
+
+
+/*
 function initModelRunner() {
     const modelRunner = {
         spread_rate_model: null,
@@ -98,3 +107,4 @@ function neighbours(point, modelRunner) {
     }
     return point.neighbours;
 }
+*/

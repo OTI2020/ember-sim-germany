@@ -8,17 +8,12 @@
     <script src="runner.js"></script>
     <script src="manage_input_form_options.js"></script>
     <script src="sample_vegetation_grid_for_testing.js"></script>
-    <script src="model_runner.js"></script>
-    <script src="propagation_models.js"></script>
-    <script src="spread_rate_models.js"></script>
 </head>
 
 <body>
-    <h1>Try to run the JS-Code</h1>
-    <button onclick="startCalculation()">Start calculation with dummy Data</button>
     <h1>Ember Simulation in Germany</h1>
 
-    <h2>Wildfire Simulation Parameters</h2>
+    <h2>Fire Simulation Parameters</h2>
     <form id="simulationForm">
         <div id="selectVegetation">
             <!-- Vegetation Parameters -->
@@ -101,7 +96,7 @@
             <!-- later in the map, but here is dummy data -->
             <label for="ignitionPoints">A Dummy Ignition Point</label>
             <input type="text" id="ignitionPoints" value="{{(-35.62), 148.85, 500, 345}}" required>
-            <p>lat,lng,x,y</p>
+            <p>Hint: lat,lng,x,y</p>
         </div>
 
         <div id="simulation">
@@ -121,9 +116,10 @@
 
 
 
-        <!-- Submit Button -->
-        <button type="button" onclick="simulateWildfire()">Calculate Wildfire Simulation</button>
+        
     </form>
+    <!-- Submit Button -->
+    <button onclick="startCalculation()">Start calculation with dummy Data</button>    
 </body>
 
 </html>
