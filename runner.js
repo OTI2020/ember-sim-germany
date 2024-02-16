@@ -1,7 +1,8 @@
 function startCalculation() {
     console.log("start calculation");
-    const arrivaltime_test = 0.5;
-    cellularAutomaton()
+    const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
+    const inital_ignition = []; // TODO: #10 in future the data will come from the input form submission by the user
+    cellularAutomaton(arrivaltime_test, inital_ignition)
 
     // const modelRunner = initModelRunner();
 /*
@@ -11,8 +12,10 @@ function startCalculation() {
     }*/
 }
 
-function cellularAutomaton(arrivaltime_test) {
-    console.log("cells...");
+function cellularAutomaton(in_arrivaltime_test, in_inital_ignition) {
+    let list_of_ignited_cells = in_inital_ignition; // in past: called "grid" and not list, but technically it was a list
+
+    console.log("list_of_ignited_cells");
 }
 
 
