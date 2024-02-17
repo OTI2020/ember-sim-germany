@@ -4,7 +4,10 @@ function start_calculation() {
     const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
-    cellular_automaton(arrivaltime_test, inital_ignition)
+    let final_list_of_burning_cells 
+    final_list_of_burning_cells = cellular_automaton(arrivaltime_test, inital_ignition)
+    console.log(final_list_of_burning_cells);
+    console.log(JSON.stringify(final_list_of_burning_cells, null, 0));
     // const modelRunner = initModelRunner();
 }
 
@@ -29,11 +32,10 @@ function add_neighbours_to_list(in_list_of_cells) {
                 let new_cell = { id: null, x: null, y: null, t: null }
                 new_cell.x = in_list_of_cells[i].x + j
                 new_cell.y = in_list_of_cells[i].y + k
-                new_cell.t = in_list_of_cells[i].t + 0.5
+                new_cell.t = in_list_of_cells[i].t + 0.5 // TODO: #11
 
                 // check if the cell is out of border or coordinates are already in the list
                 let cellExists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
-
                 if (!cellExists && new_cell.x >= 0 && new_cell.x <= 9) {
                     if (new_cell.y >= 0 && new_cell.y <= 9) {
                         counter++ // Only new id/cell generated if condition fulfilled 
@@ -58,18 +60,21 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
     time_last_cell = list_of_ignited_cells[last_cell_index].t
     if (time_last_cell >= 3) {
         console.log("TIME IS OVER");
+        // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
         return list_of_ignited_cells // return breaks recursion
     }
 
 
     list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
-    // cellularAutomaton(in_arrivaltime_test, list_of_ignited_cells) // Recursion takes place right here
-    console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
+    cellular_automaton(in_arrivaltime_test, list_of_ignited_cells) // Recursion takes place right here
     /*
     console.log("x of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].x);
     console.log("y of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].y);
     console.log("t of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].t);
     */
+    // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
+    console.log("next recursion step");
+
     return list_of_ignited_cells
 }
 
