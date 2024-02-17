@@ -1,7 +1,7 @@
 function start_calculation() {
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
-    const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
+    const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 0, y: 9, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
     let final_list_of_burning_cells
@@ -187,7 +187,7 @@ function neighbours(point, modelRunner) {
 function fill_table(in_list) {
     for (let i = 0; i < in_list.length; i++) {
         let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
-        table_cell.textContent = in_list[i].t && in_list[i].id;
+        table_cell.textContent = in_list[i].t  //&& in_list[i].id;
         /*
         let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
         console.log(test_2);
