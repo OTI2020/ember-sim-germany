@@ -4,10 +4,13 @@ function start_calculation() {
     const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
-    let final_list_of_burning_cells 
+    let final_list_of_burning_cells
     final_list_of_burning_cells = cellular_automaton(arrivaltime_test, inital_ignition)
-    console.log(final_list_of_burning_cells);
-    console.log(JSON.stringify(final_list_of_burning_cells, null, 0));
+    // console.log(final_list_of_burning_cells);
+    // console.log(JSON.stringify(final_list_of_burning_cells, null, 0));
+
+    fill_table(final_list_of_burning_cells) // testing result visual in a table
+
     // const modelRunner = initModelRunner();
 }
 
@@ -40,7 +43,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                     if (new_cell.y >= 0 && new_cell.y <= 9) {
                         counter++ // Only new id/cell generated if condition fulfilled 
                         new_cell.id = counter
-                        console.log("new cell: " + JSON.stringify(new_cell, null, 1));
+                        // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
                     }
                 }
@@ -58,7 +61,7 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
     let time_last_cell
     last_cell_index = list_of_ignited_cells.length - 1
     time_last_cell = list_of_ignited_cells[last_cell_index].t
-    if (time_last_cell >= 3) {
+    if (time_last_cell >= 1.9) {
         console.log("TIME IS OVER");
         // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
         return list_of_ignited_cells // return breaks recursion
@@ -73,7 +76,7 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
     console.log("t of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].t);
     */
     // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
-    console.log("next recursion step");
+    // console.log("next recursion step");
 
     return list_of_ignited_cells
 }
@@ -171,3 +174,24 @@ function neighbours(point, modelRunner) {
     return point.neighbours;
 }
 */
+
+
+
+
+
+/////////////
+// fill table for testing
+/////////////
+
+// DOM interaction
+function fill_table(in_list) {
+    for (let i = 0; i < in_list.length; i++) {
+        let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
+        table_cell.textContent = in_list[i].t && in_list[i].id;
+        /*
+        let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
+        console.log(test_2);
+        */
+    }
+}
+
