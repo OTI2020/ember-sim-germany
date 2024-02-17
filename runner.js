@@ -4,7 +4,7 @@ function startCalculation() {
     const inital_ignition = [{id:0,x:5,y:2,t:0}]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
-    cellularAutomaton(arrivaltime_test, inital_ignition)
+    cellular_automaton(arrivaltime_test, inital_ignition)
     // const modelRunner = initModelRunner();
 }
 
@@ -47,7 +47,7 @@ function add_neighbours_to_list(in_list_of_cells) {
 }
 
 // 
-function cellularAutomaton(in_arrivaltime_test, in_inital_ignition) {
+function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
     let list_of_ignited_cells = in_inital_ignition; // in past: called "grid" and not list, but technically it was a list
 
     // breake recursion if simulation runs out of time
