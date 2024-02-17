@@ -183,14 +183,15 @@ function neighbours(point, modelRunner) {
 // fill table for testing
 /////////////
 
+// DOM interaction
 function fill_table(in_list) {
-    console.log("CALL WORKS");
-
     for (let i = 0; i < in_list.length; i++) {
         let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
         table_cell.textContent = in_list[i].t && in_list[i].id;
-        let test2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
-        console.log(test2);
+        /*
+        let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
+        console.log(test_2);
+        */
     }
 }
 
