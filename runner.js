@@ -83,7 +83,7 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
 
 
 
-  
+
 /*
 function startCalculation() {
     console.log("load input for parameters")
@@ -95,10 +95,9 @@ function startCalculation() {
     for (let i = 0; i < 5; i++) {
         // modelRunner.step();
         console.log("step " + i);
-    }*/
+    }
 
-}
-*/
+}*/
 
 /*
 function initModelRunner() {
