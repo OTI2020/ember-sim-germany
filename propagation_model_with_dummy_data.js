@@ -29,7 +29,7 @@ function loadInput() {
     // Simulation
     var simulationSteps = document.getElementById("simulationSteps").value;
 
-    // Output
+    /* // Output
     console.log("Vegetation Type:", vegetationType);
     console.log("FMC:", fmc);
     console.log("C:", c);
@@ -46,6 +46,7 @@ function loadInput() {
     console.log("Days Since Rain:", daysSinceRain);
     console.log("Ignition Points:", ignitionPoints);
     console.log("Simulation Steps:", simulationSteps);
+    */
 
 }
 
