@@ -83,6 +83,23 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
 
 
 
+  
+/*
+function startCalculation() {
+    console.log("load input for parameters")
+    loadInput();
+    console.log("start calculation")
+
+    const modelRunner = null //initModelRunner();
+ /*
+    for (let i = 0; i < 5; i++) {
+        // modelRunner.step();
+        console.log("step " + i);
+    }*/
+
+}
+*/
+
 /*
 function initModelRunner() {
     const modelRunner = {
@@ -92,6 +109,7 @@ function initModelRunner() {
         grid: null,
         t0: 0,
         t_index: 0,
+
         parameters: {
             EXTENTS: { x: 10, y: 10 },
             RESOLUTION: { x: 1, y: 1, t: 1 },
@@ -173,8 +191,8 @@ function neighbours(point, modelRunner) {
     }
     return point.neighbours;
 }
-*/
 
+*/
 
 
 
@@ -187,11 +205,10 @@ function neighbours(point, modelRunner) {
 function fill_table(in_list) {
     for (let i = 0; i < in_list.length; i++) {
         let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
-        table_cell.textContent = in_list[i].t  //&& in_list[i].id;
+        table_cell.textContent = in_list[i].t  // in_list[i].id;
         /*
         let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
         console.log(test_2);
         */
     }
 }
-
