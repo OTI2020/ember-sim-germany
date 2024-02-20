@@ -1,4 +1,6 @@
 function start_calculation() {
+    console.log("load input for parameters")
+    loadInput();
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
     const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 0, y: 9, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
@@ -13,6 +15,23 @@ function start_calculation() {
 
     // const modelRunner = initModelRunner();
 }
+
+
+/*
+function startCalculation() {
+    console.log("load input for parameters")
+    loadInput();
+    console.log("start calculation")
+
+    const modelRunner = null //initModelRunner();
+ /*
+    for (let i = 0; i < 5; i++) {
+        // modelRunner.step();
+        console.log("step " + i);
+    }
+
+}*/
+
 
 /*
 // helper function to calculate spread for every time step
@@ -84,20 +103,7 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
 
 
 
-/*
-function startCalculation() {
-    console.log("load input for parameters")
-    loadInput();
-    console.log("start calculation")
 
-    const modelRunner = null //initModelRunner();
- /*
-    for (let i = 0; i < 5; i++) {
-        // modelRunner.step();
-        console.log("step " + i);
-    }
-
-}*/
 
 /*
 function initModelRunner() {
