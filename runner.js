@@ -38,8 +38,8 @@ function add_neighbours_to_list(in_list_of_cells) {
                 new_cell.t = in_list_of_cells[i].t + 0.5 // TODO: #11
 
                 // check if the cell is out of border or coordinates are already in the list
-                let cellExists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
-                if (!cellExists && new_cell.x >= 0 && new_cell.x <= 9) {
+                let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
+                if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9) {
                     if (new_cell.y >= 0 && new_cell.y <= 9) {
                         counter++ // Only new id/cell generated if condition fulfilled 
                         new_cell.id = counter
