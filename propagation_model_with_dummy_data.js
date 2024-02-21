@@ -1,6 +1,6 @@
 function loadInput() {
     // Vegetation
-    var vegetationType = document.getElementById("vegetationType").value;
+    var vegetation_type = document.getElementById("vegetationType").value;
     var fmc = document.getElementById("fmc").value;
     var c = document.getElementById("c").value;
     var grazing = document.getElementById("grazing").value;
@@ -9,25 +9,25 @@ function loadInput() {
     var w = document.getElementById("w").value;
 
     // Elevation
-    var elevationType = document.getElementById("elevationType").value;
+    var elevation_type = document.getElementById("elevationType").value;
 
     // Wind
-    var windDirection = document.getElementById("windDirection").value;
-    var windSpeed = document.getElementById("windSpeed").value;
+    var wind_direction = document.getElementById("windDirection").value;
+    var wind_speed = document.getElementById("windSpeed").value;
 
     // Atmosphere
-    var airTemperature = document.getElementById("airTemperature").value;
-    var relativeHumidity = document.getElementById("relativeHumidity").value;
+    var air_temperature = document.getElementById("airTemperature").value;
+    var relative_humidity = document.getElementById("relativeHumidity").value;
 
     // Rain
     var precipitation = document.getElementById("precipitation").value;
-    var daysSinceRain = document.getElementById("daysSinceRain").value;
+    var days_since_rain = document.getElementById("daysSinceRain").value;
 
     // Ignition Points
-    var ignitionPoints = document.getElementById("ignitionPoints").value;
+    var ignition_points = document.getElementById("ignitionPoints").value;
 
     // Simulation
-    var simulationSteps = document.getElementById("simulationSteps").value;
+    var simulation_steps = document.getElementById("simulationSteps").value;
 
     /*  // Output
     console.log("Vegetation Type:", vegetationType);
