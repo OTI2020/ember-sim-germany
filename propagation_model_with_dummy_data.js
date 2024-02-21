@@ -54,15 +54,19 @@ function loadInput() {
 
 // TODO #17 - calculation of the propagation model should come from the user interface, maybe as JSON?
 
-function calculate_arrival_time(from_point, to_point, t0, t1, flat) {
+function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) {  // time input is not used by that way
     if (flat == null) { flat = false; }
-    if ((from_point.position.x === to_point.position.x) && (from_point.position.y === to_point.position.y)) { return from_point.ignition_time; }
+    console.log(from_point);
+    console.log(to_point);
+    // the following if condition is not needed, because in the function 'add_neighbours_to_list' I make sure this couldn't happen.
+    // if ((from_point.x === to_point.position.x) && (from_point.position.y === to_point.position.y)) { return from_point.ignition_time; }
+
 
     // also for less typing
-    const xp = to_point.position.x;
-    const yp = to_point.position.y;
-    const x0 = from_point.position.x;
-    const y0 = from_point.position.y;
+    const xp = to_point.x;
+    const yp = to_point.y;
+    const x0 = from_point.x;
+    const y0 = from_point.y;
 
     const xd = xp - x0;
     const yd = yp - y0;
