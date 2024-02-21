@@ -7,7 +7,7 @@ function start_calculation() {
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
     let final_list_of_burning_cells
-    final_list_of_burning_cells = cellular_automaton(arrivaltime_test, inital_ignition)
+    final_list_of_burning_cells = cellular_automaton(inital_ignition)
     // console.log(final_list_of_burning_cells);
     // console.log(JSON.stringify(final_list_of_burning_cells, null, 0));
 
@@ -56,7 +56,6 @@ function add_neighbours_to_list(in_list_of_cells) {
                 new_cell.y = in_list_of_cells[i].y + k
 
                 // new_cell.t = in_list_of_cells[i].t + 0.5 // TODO: #11
-                new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
 
 
 
@@ -67,6 +66,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                     if (new_cell.y >= 0 && new_cell.y <= 9) {
                         counter++ // Only new id/cell generated if condition fulfilled 
                         new_cell.id = counter
+                        new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
                         // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
                     }
@@ -78,7 +78,7 @@ function add_neighbours_to_list(in_list_of_cells) {
 }
 
 // 
-function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
+function cellular_automaton(in_inital_ignition) {
     let list_of_ignited_cells = in_inital_ignition; // in past: called "grid" and not list, but technically it was a list
 
     // breake recursion if simulation runs out of time
@@ -93,7 +93,7 @@ function cellular_automaton(in_arrivaltime_test, in_inital_ignition) {
 
 
     list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
-    cellular_automaton(in_arrivaltime_test, list_of_ignited_cells) // Recursion takes place right here
+    cellular_automaton(list_of_ignited_cells) // Recursion takes place right here
     /*
     console.log("x of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].x);
     console.log("y of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].y);
@@ -203,6 +203,11 @@ function neighbours(point, modelRunner) {
 }
 
 */
+
+
+
+
+
 
 
 
