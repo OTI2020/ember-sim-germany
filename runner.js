@@ -45,10 +45,10 @@ function time_steps(in_steps, in_arrivaltime_test, in_inital_ignition) {
 
 
 
-function add_neighbours_to_list(in_list_of_cells) {
+function add_neighbours_to_list(in_list_of_cells, in_current_index) {
     const length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
     let counter = length_at_this_time - 1 // value for id of the last cell in the list
-    for (let i = 0; i < length_at_this_time; i++) {
+    for (let i = in_current_index; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
                 let new_cell = { id: null, x: null, y: null, t: null }
