@@ -47,6 +47,7 @@ function loadInput() {
     console.log("Ignition Points:", ignitionPoints);
     console.log("Simulation Steps:", simulationSteps);
     /**/
+
 }
 
 
@@ -154,5 +155,6 @@ function calculate_arrival_time(from_point, to_point, t0, t1, flat) {
     tarrival = tarrival / Math.cos(phi);
     tarrival = from_point.ignition_time + tarrival;
 
+    console.log("tarrival: " + tarrival);
     return tarrival;
 }
