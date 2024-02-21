@@ -84,7 +84,7 @@ function cellular_automaton(in_inital_ignition) {
     // Check if simulation should end
     // breake recursion if simulation runs out of time
     const max_time = document.getElementById("simulationSteps").value // DOM in every iteration? Is that smart??
-    let i = 0
+    let current_index = 0;
     while (true) {
         const last_cell_index = list_of_ignited_cells.length - 1
         const time_last_cell = list_of_ignited_cells[last_cell_index].t
@@ -96,9 +96,8 @@ function cellular_automaton(in_inital_ignition) {
             // return list_of_ignited_cells // return breaks recursion
             break;
         }
-        console.log(i++);
-        list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
-
+        list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells, current_index)
+        current_index = list_of_ignited_cells.length // TODO #19 - improof efficency of cellular automaton algorithm
     }
 
 
