@@ -86,12 +86,14 @@ function cellular_automaton(in_inital_ignition) {
     const max_time = document.getElementById("simulationSteps").value // DOM in every iteration? Is that smart??
     let current_index = 0;
     while (true) {
-        const last_cell_index = list_of_ignited_cells.length - 1
-        const time_last_cell = list_of_ignited_cells[last_cell_index].t
+        // const last_cell_index = list_of_ignited_cells.length - 1
+        // const time_last_cell = list_of_ignited_cells[last_cell_index].t
 
-        if (time_last_cell >= max_time) { //5.9) {
+        const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
+
+        if (latest_time >= max_time) { //5.9) {
             console.log("TIME IS OVER");
-            console.log("max_time " + max_time);
+            console.log("latest_time " + latest_time);
             // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
             // return list_of_ignited_cells // return breaks recursion
             break;
@@ -115,7 +117,21 @@ function cellular_automaton(in_inital_ignition) {
 }
 
 
+// helper function to efficently find the latest time
+function find_latest_time_in_list_of_ignited_cells(in_array) {
+    let latest_time = -1; 
+    let cell_with_latest_time;
+    for (i=0; i<in_array.length; i++) {
+        if (in_array[i].t > latest_time) {
+            latest_time = in_array[i].t;
+            // cell_with_latest_time = in_array[i];
+        }
+    }
 
+    // console.log(latest_time);
+
+    return latest_time // cell_with_latest_time.id
+}
 
 
 
