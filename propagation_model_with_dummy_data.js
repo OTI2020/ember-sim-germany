@@ -120,7 +120,7 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
         theta + Math.PI;
 
     // spread rate is in km/h, we need m/h
-    let r = (from_point.spread_rate * 1000.0) / 60.0;
+    let r = 0.5 // (from_point.spread_rate * 1000.0) / 60.0; // only TEST data - MUST be changed!
 
     // TODO HACK - this is to correct the ellipsis shape for high winds - need to find the problem with the algorithm!
     r = r / ((-0.0097 * wind_speed) + 1.0558);
@@ -167,7 +167,7 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
 
     // correct for slope and initial ignition time
     tarrival = tarrival / Math.cos(phi);
-    tarrival = from_point.ignition_time + tarrival;
+    tarrival = from_point.t + tarrival;
 
     console.log("tarrival: " + tarrival);
     return tarrival;
