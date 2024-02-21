@@ -122,7 +122,7 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
     // spread rate is in km/h, we need m/h
     let r = 0.5 // (from_point.spread_rate * 1000.0) / 60.0; // only TEST data - MUST be changed!
 
-    // TODO HACK - this is to correct the ellipsis shape for high winds - need to find the problem with the algorithm!
+    // TODO HACK - this is to correct the ellipsis shape for high winds - need to find the problem with the algorithm! // this comment is from Australia
     r = r / ((-0.0097 * wind_speed) + 1.0558);
 
     const forward_spread_rate = r;
