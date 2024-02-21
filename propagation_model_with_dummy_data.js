@@ -71,16 +71,19 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
     const xd = xp - x0;
     const yd = yp - y0;
 
-
+    //TODO #18 - What is the difference between (and the data type of) slope, aspect and elevation
+/*
     // adjust spread rate based on terrain and wind
     const slope = flat === true ? 0 : from_point.param('SLOPE'); // in degrees
     if (slope == null) { return; }
+*/
+    const slope = 1 // test data //TODO #18
 
     // TODO: use a better approximation for slope - there's some empirical exp() stuff somewhere
     const terrain_factor = (2.0 * slope) / 10.0; // based on firefighter's mannual - spread rate doubles for every 10 degrees of slope
     // theta = from_point.theta
     // aspect points in the direction of the downslope, need to rotate by 180
-    const aspect = flat === true ? 180.0 : from_point.param('ASPECT') + 180.0;
+    const aspect = flat === true ? 180.0 :  1 + 180 // from_point.param('ASPECT') + 180.0; // TODO #18
     const terrain_theta = (aspect * Math.PI) / 180.0;
 
     // after [Alexander 1985]
@@ -151,6 +154,7 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
     // t2 = - p2 - Math.sqrt( p2**2 - q )
 
     // calculate slope between the two points
+    //TODO #18
     const phi = Math.atan((to_point.param('ELEVATION') - from_point.param('ELEVATION')) / Math.sqrt(Math.pow(xd, 2) + Math.pow(yd, 2)));
 
     //tarrival = tarrival * (0.9+Math.random()*0.2)
