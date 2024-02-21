@@ -81,19 +81,21 @@ function add_neighbours_to_list(in_list_of_cells) {
 function cellular_automaton(in_inital_ignition) {
     let list_of_ignited_cells = in_inital_ignition; // in past: called "grid" and not list, but technically it was a list
 
+    // Check if simulation should end
     // breake recursion if simulation runs out of time
-    let time_last_cell
-    last_cell_index = list_of_ignited_cells.length - 1
-    time_last_cell = list_of_ignited_cells[last_cell_index].t
-    if (time_last_cell >= 1.9) {
+    const last_cell_index = list_of_ignited_cells.length - 1
+    const time_last_cell = list_of_ignited_cells[last_cell_index].t
+    const max_time = document.getElementById("simulationSteps").value // DOM in every iteration? Is that smart??
+    if (time_last_cell >= max_time){ //5.9) {
         console.log("TIME IS OVER");
+        console.log("max_time "+ max_time);
         // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
         return list_of_ignited_cells // return breaks recursion
     }
 
 
     list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
-    cellular_automaton(list_of_ignited_cells) // Recursion takes place right here
+    return cellular_automaton(list_of_ignited_cells) // Recursion takes place right here
     /*
     console.log("x of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].x);
     console.log("y of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].y);
@@ -102,7 +104,7 @@ function cellular_automaton(in_inital_ignition) {
     // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
     // console.log("next recursion step");
 
-    return list_of_ignited_cells
+    return list_of_ignited_cells // Alternative
 }
 
 
