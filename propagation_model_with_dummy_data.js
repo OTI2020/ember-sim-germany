@@ -29,7 +29,7 @@ function loadInput() {
     // Simulation
     var simulationSteps = document.getElementById("simulationSteps").value;
 
-    /* // Output
+    /*  // Output
     console.log("Vegetation Type:", vegetationType);
     console.log("FMC:", fmc);
     console.log("C:", c);
@@ -46,9 +46,12 @@ function loadInput() {
     console.log("Days Since Rain:", daysSinceRain);
     console.log("Ignition Points:", ignitionPoints);
     console.log("Simulation Steps:", simulationSteps);
-    */
-
+    /**/
 }
+
+
+
+// TODO #17 - calculation of the propagation model should come from the user interface, maybe as JSON?
 
 function calculate_arrival_time(from_point, to_point, t0, t1, flat) {
     if (flat == null) { flat = false; }
