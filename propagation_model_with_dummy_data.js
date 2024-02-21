@@ -54,6 +54,7 @@ function loadInput() {
 
 // TODO #17 - calculation of the propagation model should come from the user interface, maybe as JSON?
 
+
 function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) {  // time input is not used by that way
     if (flat == null) { flat = false; }
     // console.log(from_point);
@@ -72,7 +73,11 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
     const yd = yp - y0;
 
     //TODO #18 - What is the difference between (and the data type of) slope, aspect and elevation
-/*
+
+    // elevation provides vertical information about the terrain, 
+    // slope indicates the steepness of the terrain 
+    // and aspect indicates the direction in which the terrain slopes
+    /*
     // adjust spread rate based on terrain and wind
     const slope = flat === true ? 0 : from_point.param('SLOPE'); // in degrees
     if (slope == null) { return; }
