@@ -54,9 +54,9 @@ function add_neighbours_to_list(in_list_of_cells) {
                 let new_cell = { id: null, x: null, y: null, t: null }
                 new_cell.x = in_list_of_cells[i].x + j
                 new_cell.y = in_list_of_cells[i].y + k
-                
+
                 // new_cell.t = in_list_of_cells[i].t + 0.5 // TODO: #11
-                new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], 1, 2, true) //test
+                new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
 
 
 
