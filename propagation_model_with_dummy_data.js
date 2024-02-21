@@ -56,8 +56,8 @@ function loadInput() {
 
 function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) {  // time input is not used by that way
     if (flat == null) { flat = false; }
-    console.log(from_point);
-    console.log(to_point);
+    // console.log(from_point);
+    // console.log(to_point);
     // the following if condition is not needed, because in the function 'add_neighbours_to_list' I make sure this couldn't happen.
     // if ((from_point.x === to_point.position.x) && (from_point.position.y === to_point.position.y)) { return from_point.ignition_time; }
 
@@ -87,9 +87,9 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
     const terrain_theta = (aspect * Math.PI) / 180.0;
 
     // after [Alexander 1985]
-    const wind_speed = (from_point.param('WIND', 'speed_2m'));
+    const wind_speed = document.getElementById("windSpeed").value; // (from_point.param('WIND', 'speed_2m'));
     const wind_factor = 1.0 + (0.00120 * Math.pow(wind_speed, 2.154));
-    const wind_theta = ((from_point.param('WIND', 'angle') * Math.PI) / 180.0) + Math.PI;
+    const wind_theta = document.getElementById("windDirection").value // ((from_point.param('WIND', 'angle') * Math.PI) / 180.0) + Math.PI;
 
     const tx = terrain_factor * Math.cos(terrain_theta);
     const ty = terrain_factor * Math.sin(terrain_theta);
