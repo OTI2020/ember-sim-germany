@@ -155,7 +155,8 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
 
     // calculate slope between the two points
     //TODO #18
-    const phi = Math.atan((to_point.param('ELEVATION') - from_point.param('ELEVATION')) / Math.sqrt(Math.pow(xd, 2) + Math.pow(yd, 2)));
+    // const phi = Math.atan((to_point.param('ELEVATION') - from_point.param('ELEVATION')) / Math.sqrt(Math.pow(xd, 2) + Math.pow(yd, 2)));
+    const phi = Math.atan((3 - 2) / Math.sqrt(Math.pow(xd, 2) + Math.pow(yd, 2))); // test data for elevation - must be changed
 
     //tarrival = tarrival * (0.9+Math.random()*0.2)
 
