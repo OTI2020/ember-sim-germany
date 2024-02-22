@@ -61,7 +61,7 @@ function cheney_spread_rate_model() {
   const u = document.getElementById("windSpeed").value // point.param('WIND', 20);
   const c = document.getElementById("c").value // point.param('VEGETATION', 100);
   const mc = document.getElementById("fmc").value; // point.param('VEGETATION', 2.0); 
-  //  - Question?? mc = fmc = FRB (Fuel reduction burn)
+  // TODO #22 - Question?? mc = fmc = FRB (Fuel reduction burn)
 
   const dm = mc < 12 ?
     Math.exp(-0.108 * mc) :
