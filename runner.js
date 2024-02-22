@@ -56,11 +56,6 @@ function add_neighbours_to_list(in_list_of_cells) {
                 new_cell.x = in_list_of_cells[i].x + j
                 new_cell.y = in_list_of_cells[i].y + k
 
-                // new_cell.t = in_list_of_cells[i].t + 0.5 // TODO: #11
-
-
-
-
                 // check if the cell is out of border or coordinates are already in the list
                 let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
                 if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9) {
@@ -110,7 +105,7 @@ function cellular_automaton(in_inital_ignition) {
 
 
 
-    // return cellular_automaton(list_of_ignited_cells) // Recursion takes place right here
+    // return cellular_automaton(list_of_ignited_cells) // Recursion took place right here
     /*
     console.log("x of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].x);
     console.log("y of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].y);
