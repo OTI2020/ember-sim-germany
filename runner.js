@@ -68,6 +68,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                         counter++ // Only new id/cell generated if condition fulfilled 
                         new_cell.id = counter
                         new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
+                        // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
                         // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
                         new_cells_index++
@@ -124,9 +125,9 @@ function cellular_automaton(in_inital_ignition) {
 
 // helper function to efficently find the latest time
 function find_latest_time_in_list_of_ignited_cells(in_array) {
-    let latest_time = -1; 
+    let latest_time = -1;
     let cell_with_latest_time;
-    for (i=0; i<in_array.length; i++) {
+    for (i = 0; i < in_array.length; i++) {
         if (in_array[i].t > latest_time) {
             latest_time = in_array[i].t;
             // cell_with_latest_time = in_array[i];
