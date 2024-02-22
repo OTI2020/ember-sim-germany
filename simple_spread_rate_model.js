@@ -22,3 +22,5 @@ function simple_spread_rate_model() {
     return spread_rate = 1;
 
 }
+
+// TODO #21 - add models: CheneySpreadRateModel and McArthurSpreadRateModel
