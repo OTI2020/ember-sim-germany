@@ -54,7 +54,7 @@ function loadInput() {
 
 // TODO #17 - calculation of the propagation model should come from the user interface, maybe as JSON?
 
-
+// this function is the elliptical spread model
 function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) {  // time input is not used by that way
     if (flat == null) { flat = false; }
     // console.log(from_point);
