@@ -43,12 +43,13 @@ function time_steps(in_steps, in_arrivaltime_test, in_inital_ignition) {
     }
 }*/
 
+let new_cells_index = 0
 
-
-function add_neighbours_to_list(in_list_of_cells, in_current_index) {
+function add_neighbours_to_list(in_list_of_cells) {
     const length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
     let counter = length_at_this_time - 1 // value for id of the last cell in the list
-    for (let i = in_current_index; i < length_at_this_time; i++) {
+    console.log("new_cells_index " + new_cells_index);
+    for (let i = new_cells_index; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
                 let new_cell = { id: null, x: null, y: null, t: null }
@@ -69,6 +70,7 @@ function add_neighbours_to_list(in_list_of_cells, in_current_index) {
                         new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
                         // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
+                        new_cells_index++
                     }
                 }
             }
@@ -84,7 +86,8 @@ function cellular_automaton(in_inital_ignition) {
     // Check if simulation should end
     // breake recursion if simulation runs out of time
     const max_time = document.getElementById("simulationSteps").value // DOM in every iteration? Is that smart??
-    let current_index = 0;
+    // let current_index = 0;
+    let cache = 0;
     while (true) {
         // const last_cell_index = list_of_ignited_cells.length - 1
         // const time_last_cell = list_of_ignited_cells[last_cell_index].t
@@ -98,8 +101,10 @@ function cellular_automaton(in_inital_ignition) {
             // return list_of_ignited_cells // return breaks recursion
             break;
         }
-        list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells, current_index)
-        current_index = list_of_ignited_cells.length // TODO #19 - improof efficency of cellular automaton algorithm
+        // cache = list_of_ignited_cells.length
+        list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
+        // current_index = cache - current_index // TODO #19 - improof efficency of cellular automaton algorithm
+
     }
 
 
@@ -110,7 +115,7 @@ function cellular_automaton(in_inital_ignition) {
     console.log("y of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].y);
     console.log("t of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].t);
     */
-    console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
+    // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
     // console.log("next recursion step");
 
     return list_of_ignited_cells // Alternative
