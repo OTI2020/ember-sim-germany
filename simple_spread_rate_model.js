@@ -1,4 +1,9 @@
 // let spread_rate = 100;
+
+
+
+
+
 // Simple spread rate model used for testing. Will set the spread rate to a constant.
 function simple_spread_rate_model() {
 
