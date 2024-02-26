@@ -49,10 +49,10 @@ function add_neighbours_to_list(in_list_of_cells) {
     let length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
     let id_counter = length_at_this_time - 1 // value for id of the last cell in the list
     let new_cells_counter = 0
-    console.log("new_cells_index " + new_cells_index);
-    console.log("length_at_this_time " + length_at_this_time);
-    console.log("id_counter " + id_counter);
-    console.log("start_index_cache " + new_cells_counter);
+    // console.log("new_cells_index " + new_cells_index);
+    // console.log("length_at_this_time " + length_at_this_time);
+    // console.log("id_counter " + id_counter);
+    // console.log("start_index_cache " + new_cells_counter);
     for (let i = new_cells_index; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
