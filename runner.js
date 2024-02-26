@@ -3,7 +3,7 @@ function start_calculation() {
     loadInput();
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
-    const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 0, y: 9, t: 0.001 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
+    const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
     let final_list_of_burning_cells
@@ -67,7 +67,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                     if (new_cell.y >= 0 && new_cell.y <= 9) {
                         id_counter++ // Only new id/cell generated if condition fulfilled 
                         new_cell.id = id_counter
-                        new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
+                        new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
                         // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
                         // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
@@ -98,7 +98,7 @@ function cellular_automaton(in_inital_ignition) {
         const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
 
         console.log(">  >  >  CHECK latest_time " + latest_time);
-        if (current_step >= max_steps || list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
+        if (current_step >= max_steps) {//|| list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
             console.log("> > > TIME IS OVER < < <");
             console.log("latest_time " + latest_time);
             console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
@@ -256,7 +256,8 @@ function neighbours(point, modelRunner) {
 function fill_table(in_list) {
     for (let i = 0; i < in_list.length; i++) {
         let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
-        table_cell.textContent = in_list[i].t  // in_list[i].id;
+        let roundedNumber = Math.round(in_list[i].t * 100) / 100
+        table_cell.textContent = roundedNumber  // in_list[i].id;
         /*
         let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
         console.log(test_2);
