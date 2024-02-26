@@ -49,7 +49,8 @@ function add_neighbours_to_list(in_list_of_cells) {
     const length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
     let counter = length_at_this_time - 1 // value for id of the last cell in the list
     console.log("new_cells_index " + new_cells_index);
-    for (let i = new_cells_index; i < length_at_this_time; i++) {
+    let start_index_cache = length_at_this_time - new_cells_index
+    for (let i = start_index_cache; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
                 let new_cell = { id: null, x: null, y: null, t: null }
@@ -81,22 +82,26 @@ function cellular_automaton(in_inital_ignition) {
 
     // Check if simulation should end
     // breake recursion if simulation runs out of time
-    const max_time = document.getElementById("simulationSteps").value // DOM in every iteration? Is that smart??
+    let max_steps = document.getElementById("simulationSteps").value // DOM in every iteration? Is that smart??
     // let current_index = 0;
     let cache = 0;
+    let current_step = 0
     while (true) {
         // const last_cell_index = list_of_ignited_cells.length - 1
         // const time_last_cell = list_of_ignited_cells[last_cell_index].t
 
         const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
 
-        if (latest_time >= max_time) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
-            console.log("TIME IS OVER");
+        console.log("latest_time" + latest_time);
+        if (current_step >= max_steps || list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
+            console.log("> > > TIME IS OVER < < <");
             console.log("latest_time " + latest_time);
-            // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
-            // return list_of_ignited_cells // return breaks recursion
+            console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
+            return list_of_ignited_cells // return breaks recursion
             break;
         }
+        current_step++
+        console.log("current_step " + current_step);
         // cache = list_of_ignited_cells.length
         list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
         // current_index = cache - current_index // TODO #19 - improof efficency of cellular automaton algorithm
