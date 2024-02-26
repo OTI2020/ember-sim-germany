@@ -46,11 +46,14 @@ function time_steps(in_steps, in_arrivaltime_test, in_inital_ignition) {
 let new_cells_index = 0
 
 function add_neighbours_to_list(in_list_of_cells) {
-    const length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
-    let counter = length_at_this_time - 1 // value for id of the last cell in the list
+    let length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
+    let id_counter = length_at_this_time - 1 // value for id of the last cell in the list
+    let new_cells_counter = 0
     console.log("new_cells_index " + new_cells_index);
-    let start_index_cache = length_at_this_time - new_cells_index
-    for (let i = start_index_cache; i < length_at_this_time; i++) {
+    console.log("length_at_this_time " + length_at_this_time);
+    console.log("id_counter " + id_counter);
+    console.log("start_index_cache " + new_cells_counter);
+    for (let i = new_cells_index; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
                 let new_cell = { id: null, x: null, y: null, t: null }
@@ -59,20 +62,22 @@ function add_neighbours_to_list(in_list_of_cells) {
 
                 // check if the cell is out of border or coordinates are already in the list
                 let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
+                console.log("cell_exists = " + cell_exists);
                 if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9) {
                     if (new_cell.y >= 0 && new_cell.y <= 9) {
-                        counter++ // Only new id/cell generated if condition fulfilled 
-                        new_cell.id = counter
+                        id_counter++ // Only new id/cell generated if condition fulfilled 
+                        new_cell.id = id_counter
                         new_cell.t = calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
                         // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
                         // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
-                        new_cells_index++
+                        new_cells_counter++// new_cells_index++
                     }
                 }
             }
         }
     }
+    new_cells_index = in_list_of_cells.length - new_cells_counter // variable value saved outside this function       
     return in_list_of_cells;
 }
 
@@ -92,7 +97,7 @@ function cellular_automaton(in_inital_ignition) {
 
         const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
 
-        console.log("latest_time" + latest_time);
+        console.log(">  >  >  CHECK latest_time " + latest_time);
         if (current_step >= max_steps || list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
             console.log("> > > TIME IS OVER < < <");
             console.log("latest_time " + latest_time);
