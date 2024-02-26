@@ -74,7 +74,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                 } else if (cell_exists) {
                     // check if minimum possible arrival time else overwrite
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
-                    if (true) {
+                    if (true) { //TODO #23 - code smart condition!!!
                         // add new cell to list
                         id_counter++
                         new_cell.id = id_counter
