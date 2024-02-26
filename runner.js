@@ -64,14 +64,23 @@ function add_neighbours_to_list(in_list_of_cells) {
                 let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
                 console.log("cell_exists = " + cell_exists);
                 if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9) {
-                    if (new_cell.y >= 0 && new_cell.y <= 9) {
-                        id_counter++ // Only new id/cell generated if condition fulfilled 
+                    id_counter++ // Only new id/cell generated if condition fulfilled 
+                    new_cell.id = id_counter
+                    new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
+                    // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
+                    // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
+                    in_list_of_cells.push(new_cell)
+                    new_cells_counter++// new_cells_index++}
+                } else if (cell_exists) {
+                    // check if minimum possible arrival time else overwrite
+                    new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
+                    if (true) {
+                        // add new cell to list
+                        id_counter++
                         new_cell.id = id_counter
                         new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
-                        // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
-                        // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                         in_list_of_cells.push(new_cell)
-                        new_cells_counter++// new_cells_index++
+                        new_cells_counter++
                     }
                 }
             }
@@ -131,17 +140,15 @@ function cellular_automaton(in_inital_ignition) {
 // helper function to efficently find the latest time
 function find_latest_time_in_list_of_ignited_cells(in_array) {
     let latest_time = -1;
-    let cell_with_latest_time;
     for (i = 0; i < in_array.length; i++) {
         if (in_array[i].t > latest_time) {
             latest_time = in_array[i].t;
-            // cell_with_latest_time = in_array[i];
         }
     }
 
     // console.log(latest_time);
 
-    return latest_time // cell_with_latest_time.id
+    return latest_time
 }
 
 
