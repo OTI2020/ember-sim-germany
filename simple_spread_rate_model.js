@@ -48,6 +48,7 @@ function mcarthur_spread_rate_model() {
 
   const w = document.getElementById("w").value // point.param('VEGETATION', 1);
 
+  console.log("spread_rate (McArthur)" + spread_rate);
   return spread_rate = 0.0012 * ffdi * w;
 };
 
@@ -96,5 +97,6 @@ function cheney_spread_rate_model() {
     }
   })();
 
+  console.log("spread_rate (Cheney) " + spread_rate);
   return spread_rate = r; // Same spread_rate for the whole area all the time
 };
