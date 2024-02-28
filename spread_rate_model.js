@@ -31,7 +31,7 @@ function simple_spread_rate_model() {
 // const mcarthur_spread_rate_model = function(point, t0, t1) {
 function mcarthur_spread_rate_model() {
   const kbdi = document.getElementById("kdbi").value // point.param('VEGETATION', 150);
-  if (!kbdi) { return; }
+  if (!kbdi) { return; } // if no data
 
   const p = document.getElementById("precipitation").value // point.param('RAIN', 5);
   const n = document.getElementById("daysSinceRain").value // point.param('RAIN', 14);
@@ -50,7 +50,7 @@ function mcarthur_spread_rate_model() {
 
   let spread_rate = 0.0012 * ffdi * w;
   console.log("spread_rate (McArthur)" + spread_rate);
-  return spread_rate 
+  return spread_rate
 };
 
 
