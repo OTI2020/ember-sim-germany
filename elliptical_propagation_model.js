@@ -55,7 +55,7 @@ function loadInput() {
 // TODO #17 - calculation of the propagation model should come from the user interface, maybe as JSON?
 
 // this function is the elliptical spread model
-function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) {  // time input is not used by that way
+function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {  // time input is not used by that way
     if (flat == null) { flat = false; }
     // console.log(from_point);
     // console.log(to_point);
@@ -88,7 +88,7 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
     const terrain_factor = (2.0 * slope) / 10.0; // based on firefighter's mannual - spread rate doubles for every 10 degrees of slope
     // theta = from_point.theta
     // aspect points in the direction of the downslope, need to rotate by 180
-    const aspect = flat === true ? 180.0 :  1 + 180 // from_point.param('ASPECT') + 180.0; // TODO #18
+    const aspect = flat === true ? 180.0 : 1 + 180 // from_point.param('ASPECT') + 180.0; // TODO #18
     const terrain_theta = (aspect * Math.PI) / 180.0;
 
     // after [Alexander 1985]
@@ -120,8 +120,8 @@ function calculate_arrival_time(from_point, to_point, flat){ // t0, t1, flat) { 
         theta + Math.PI;
 
     // spread rate is in km/h, we need m/h
-    let r = (simple_spread_rate_model() * 1000.0) / 60.0; // only TEST data - MUST be changed!
-    //let r = 0.5 // only TEST data - MUST be changed!
+    let r = (simple_spread_rate_model() * 1000.0) / 60.0; //
+    //let r = 0.5 // TEST data 
 
     // TODO HACK - this is to correct the ellipsis shape for high winds - need to find the problem with the algorithm! // this comment is from Australia
     r = r / ((-0.0097 * wind_speed) + 1.0558);
