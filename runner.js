@@ -78,20 +78,11 @@ function add_neighbours_to_list(in_list_of_cells) {
                         if (in_list_of_cells[s].x === new_cell.x && in_list_of_cells[s].y === new_cell.y) {
                             if (in_list_of_cells[s].t > new_cell.t) {
                                 in_list_of_cells[s].t = new_cell.t;
-                                console.log("OVERWRITE arivaltime");
+                                console.log("OVERWRITE arrival time");
                             }
                         }
                     }
-                    
-                    if (false) { //TODO #23 - code smart condition!!!
-                        // add new cell to list
-                        id_counter++
-                        new_cell.id = id_counter
-                        new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
-                        in_list_of_cells.push(new_cell)
-                        new_cells_counter++
-                    }
-                }/**/
+                }
             }
         }
     }
