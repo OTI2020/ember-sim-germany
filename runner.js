@@ -16,33 +16,6 @@ function start_calculation() {
     // const modelRunner = initModelRunner();
 }
 
-
-/*
-function startCalculation() {
-    console.log("load input for parameters")
-    loadInput();
-    console.log("start calculation")
-
-    const modelRunner = null //initModelRunner();
- /*
-    for (let i = 0; i < 5; i++) {
-        // modelRunner.step();
-        console.log("step " + i);
-    }
-
-}*/
-
-
-/*
-// helper function to calculate spread for every time step
-function time_steps(in_steps, in_arrivaltime_test, in_inital_ignition) {
-    let ignition_list = in_inital_ignition
-    for (let i = 0; i < in_steps-1; i++) {
-        cellularAutomaton(in_arrivaltime_test, ignition_list)
-        console.log("step " + i);
-    }
-}*/
-
 let new_cells_index = 0
 
 function add_neighbours_to_list(in_list_of_cells) {
@@ -74,7 +47,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                 } else if (cell_exists) {
                     // check if minimum possible arrival time, else overwrite
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
-                    for (s=0; s<in_list_of_cells.length; s++){
+                    for (let s=0; s<in_list_of_cells.length; s++){
                         if (in_list_of_cells[s].x === new_cell.x && in_list_of_cells[s].y === new_cell.y) {
                             if (in_list_of_cells[s].t > new_cell.t) {
                                 in_list_of_cells[s].t = new_cell.t;
@@ -140,7 +113,7 @@ function cellular_automaton(in_inital_ignition) {
 // helper function to efficently find the latest time
 function find_latest_time_in_list_of_ignited_cells(in_array) {
     let latest_time = -1;
-    for (i = 0; i < in_array.length; i++) {
+    for (let i = 0; i < in_array.length; i++) {
         if (in_array[i].t > latest_time) {
             latest_time = in_array[i].t;
         }
