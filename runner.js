@@ -1,6 +1,6 @@
 function start_calculation() {
     console.log("load input for parameters")
-    loadInput();
+    // loadInput();
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
     const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
