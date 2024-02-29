@@ -62,8 +62,8 @@ function add_neighbours_to_list(in_list_of_cells) {
 
                 // check if the cell is out of border or coordinates are already in the list
                 let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
-                console.log("cell_exists = " + cell_exists);
-                if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9) {
+                // console.log("cell_exists = " + cell_exists);
+                if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9 && new_cell.y >= 0 && new_cell.y <= 9) {
                     id_counter++ // Only new id/cell generated if condition fulfilled 
                     new_cell.id = id_counter
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
@@ -71,9 +71,10 @@ function add_neighbours_to_list(in_list_of_cells) {
                     // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                     in_list_of_cells.push(new_cell)
                     new_cells_counter++// new_cells_index++}
-                } else if (cell_exists) {
+                } /* else if (cell_exists) {
                     // check if minimum possible arrival time else overwrite
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
+
                     if (true) { //TODO #23 - code smart condition!!!
                         // add new cell to list
                         id_counter++
@@ -82,7 +83,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                         in_list_of_cells.push(new_cell)
                         new_cells_counter++
                     }
-                }
+                }*/
             }
         }
     }
