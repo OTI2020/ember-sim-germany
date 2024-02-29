@@ -71,11 +71,19 @@ function add_neighbours_to_list(in_list_of_cells) {
                     // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                     in_list_of_cells.push(new_cell)
                     new_cells_counter++// new_cells_index++}
-                } /* else if (cell_exists) {
-                    // check if minimum possible arrival time else overwrite
+                } else if (cell_exists) {
+                    // check if minimum possible arrival time, else overwrite
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
-
-                    if (true) { //TODO #23 - code smart condition!!!
+                    for (s=0; s<in_list_of_cells.length; s++){
+                        if (in_list_of_cells[s].x === new_cell.x && in_list_of_cells[s].y === new_cell.y) {
+                            if (in_list_of_cells[s].t > new_cell.t) {
+                                in_list_of_cells[s].t = new_cell.t;
+                                console.log("OVERWRITE arivaltime");
+                            }
+                        }
+                    }
+                    
+                    if (false) { //TODO #23 - code smart condition!!!
                         // add new cell to list
                         id_counter++
                         new_cell.id = id_counter
@@ -83,7 +91,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                         in_list_of_cells.push(new_cell)
                         new_cells_counter++
                     }
-                }*/
+                }/**/
             }
         }
     }
