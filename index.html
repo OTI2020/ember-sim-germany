@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Testing</title>
     <script src="manage_input_form_options.js"></script>
-    <script src="model_runner.js"></script>
-    <script src="propagation_models.js"></script>
-    <script src="spread_rate_models.js"></script>
+    <script src="sample_vegetation_grid_for_testing.js"></script>
+    <script src="spread_rate_model.js"></script>
+    <script src="elliptical_propagation_model.js"></script>
+    <script src="runner.js"></script>
+
+    
 </head>
 
 <body>
     <h1>Ember Simulation in Germany</h1>
 
-    <h2>Wildfire Simulation Parameters</h2>
+    <h2>Fire Simulation Parameters</h2>
+
     <form id="simulationForm">
         <div id="selectVegetation">
             <!-- Vegetation Parameters -->
@@ -27,7 +31,7 @@
 
             <div id="grasslandOptions">
                 <label for="fmc">FMC (double):</label>
-                <input type="number" id="fmc" step="0.01" value="0" required>
+                <input type="number" id="fmc" step="0.01" value="1.0" required>
 
                 <label for="c">C:</label>
                 <input type="number" id="c" step="0.01" value="100" required>
@@ -63,11 +67,11 @@
             <!-- Wind Parameters -->
             <h3>Wind</h3>
             <!-- direction -->
-            <label for="windDirection">Wind Direction (degrees to North):</label>
-            <input type="number" id="windDirection" min="0" max="360" value="180" required>
+            <label for="windDirection">Wind Direction (0-360 degrees to North):</label>
+            <input type="number" id="windDirection" min="0" max="360" value="0" required>
             <!-- speed -->
             <label for="windSpeed">2min Wind Speed (km/h):</label>
-            <input type="number" id="windSpeed" step="0.01" value="20" required>
+            <input type="number" id="windSpeed" step="0.01" value="50" required>
         </div>
 
         <div id="atmosphere">
@@ -96,7 +100,9 @@
             <h3>Ignition Points</h3>
             <!-- later in the map, but here is dummy data -->
             <label for="ignitionPoints">A Dummy Ignition Point</label>
-            <input type="text" id="ignitionPoints" value="{{(-35.62), 148.85, 500, 345}}" required>
+
+            <!-- <input type="text" id="ignitionPoints" value="{{(-35.62), 148.85, 500, 345}}" required> -->
+            <input type="text" id="ignitionPoints" value="{51.96950838698576, 7.596003472260846}" required>
             <p>lat,lng,x,y</p>
         </div>
 
@@ -104,7 +110,7 @@
             <!-- Simulation Parameters -->
             <h3>Simulation</h3>
             <label for="simulationSteps">Configure Simulation Steps (at least 1):</label>
-            <input type="number" id="simulationSteps" min="1" value="15" required>
+            <input type="number" id="simulationSteps" min="1" value="5" required>
             <!-- models -->
             <!-- propagation models could be selected automaticly in dependency to selected type of vegetation-->
         </div>
@@ -114,12 +120,178 @@
             <h3>Properties</h3>
             <p>not directly editable ??</p>
         </div>
-
-
-
-        <!-- Submit Button -->
-        <button type="button" onclick="simulateWildfire()">Calculate Wildfire Simulation</button>
     </form>
+
+
+    <!-- Submit Button -->
+    <button onclick="start_calculation()">Start calculation with dummy Data</button>
+
+    <p id="space"></p>
+
+
+    <div>
+        <!-- Style -->
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th,
+            td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+        </style>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>y\x</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                </tr>
+            </thead>
+            <tr>
+                <th>0</th>
+                <td id="x0y0">-</td>
+                <td id="x1y0">-</td>
+                <td id="x2y0">-</td>
+                <td id="x3y0">-</td>
+                <td id="x4y0">-</td>
+                <td id="x5y0">-</td>
+                <td id="x6y0">-</td>
+                <td id="x7y0">-</td>
+                <td id="x8y0">-</td>
+                <td id="x9y0">-</td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td id="x0y1">-</td>
+                <td id="x1y1">-</td>
+                <td id="x2y1">-</td>
+                <td id="x3y1">-</td>
+                <td id="x4y1">-</td>
+                <td id="x5y1">-</td>
+                <td id="x6y1">-</td>
+                <td id="x7y1">-</td>
+                <td id="x8y1">-</td>
+                <td id="x9y1">-</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td id="x0y2">-</td>
+                <td id="x1y2">-</td>
+                <td id="x2y2">-</td>
+                <td id="x3y2">-</td>
+                <td id="x4y2">-</td>
+                <td id="x5y2">-</td>
+                <td id="x6y2">-</td>
+                <td id="x7y2">-</td>
+                <td id="x8y2">-</td>
+                <td id="x9y2">-</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td id="x0y3">-</td>
+                <td id="x1y3">-</td>
+                <td id="x2y3">-</td>
+                <td id="x3y3">-</td>
+                <td id="x4y3">-</td>
+                <td id="x5y3">-</td>
+                <td id="x6y3">-</td>
+                <td id="x7y3">-</td>
+                <td id="x8y3">-</td>
+                <td id="x9y3">-</td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td id="x0y4">-</td>
+                <td id="x1y4">-</td>
+                <td id="x2y4">-</td>
+                <td id="x3y4">-</td>
+                <td id="x4y4">-</td>
+                <td id="x5y4">-</td>
+                <td id="x6y4">-</td>
+                <td id="x7y4">-</td>
+                <td id="x8y4">-</td>
+                <td id="x9y4">-</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td id="x0y5">-</td>
+                <td id="x1y5">-</td>
+                <td id="x2y5">-</td>
+                <td id="x3y5">-</td>
+                <td id="x4y5">-</td>
+                <td id="x5y5">-</td>
+                <td id="x6y5">-</td>
+                <td id="x7y5">-</td>
+                <td id="x8y5">-</td>
+                <td id="x9y5">-</td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td id="x0y6">-</td>
+                <td id="x1y6">-</td>
+                <td id="x2y6">-</td>
+                <td id="x3y6">-</td>
+                <td id="x4y6">-</td>
+                <td id="x5y6">-</td>
+                <td id="x6y6">-</td>
+                <td id="x7y6">-</td>
+                <td id="x8y6">-</td>
+                <td id="x9y6">-</td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td id="x0y7">-</td>
+                <td id="x1y7">-</td>
+                <td id="x2y7">-</td>
+                <td id="x3y7">-</td>
+                <td id="x4y7">-</td>
+                <td id="x5y7">-</td>
+                <td id="x6y7">-</td>
+                <td id="x7y7">-</td>
+                <td id="x8y7">-</td>
+                <td id="x9y7">-</td>
+            </tr>
+            <tr>
+                <th>8</th>
+                <td id="x0y8">-</td>
+                <td id="x1y8">-</td>
+                <td id="x2y8">-</td>
+                <td id="x3y8">-</td>
+                <td id="x4y8">-</td>
+                <td id="x5y8">-</td>
+                <td id="x6y8">-</td>
+                <td id="x7y8">-</td>
+                <td id="x8y8">-</td>
+                <td id="x9y8">-</td>
+            </tr>
+            <tr>
+                <th>9</th>
+                <td id="x0y9">-</td>
+                <td id="x1y9">-</td>
+                <td id="x2y9">-</td>
+                <td id="x3y9">-</td>
+                <td id="x4y9">-</td>
+                <td id="x5y9">-</td>
+                <td id="x6y9">-</td>
+                <td id="x7y9">-</td>
+                <td id="x8y9">-</td>
+                <td id="x9y9">-</td>
+            </tr>
+    </div>
 
 </body>
 
