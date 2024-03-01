@@ -19,6 +19,9 @@ Tool for education and civil servants.
 
 ## About
 
+**Try it yourself:**
+[Ember-sim-Germany](https://oti2020.github.io/ember-sim-germany/) Current version (main branch)
+
 Inspiration: Project for Australia:
 [Ember-Simulation-Australia](http://ember-sim.s3-website-ap-southeast-2.amazonaws.com/)
 
