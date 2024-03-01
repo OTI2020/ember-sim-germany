@@ -28,6 +28,9 @@
                 <option value="grassland">Grassland</option>
                 <option value="forest">Forest</option>
             </select>
+            <p>Only McArthur-Model for Eucalypt Forests is used in this version (2024-03-01)</p>
+            <p>But Model for Grassland is already implemented</p>
+
 
             <div id="grasslandOptions">
                 <label for="fmc">FMC (double):</label>
@@ -61,6 +64,7 @@
                 <option value="geotiff">Provided GeoTIFF</option>
                 <option value="uploadTiff">Upload Own TIFF</option>
             </select>
+            <p>This parameter option is compleatly ignored in this version (2024-03-01)- simulates flat surface</p>
         </div>
 
         <div id="wind">
@@ -104,6 +108,8 @@
             <!-- <input type="text" id="ignitionPoints" value="{{(-35.62), 148.85, 500, 345}}" required> -->
             <input type="text" id="ignitionPoints" value="{51.96950838698576, 7.596003472260846}" required>
             <p>lat,lng,x,y</p>
+            <p>This parameter option is hard coded in this version (2024-03-01)- uses dummy ignitionPoints</p>
+            <p>Dummy ignitionPoints (x/y): (5,2) and (0,9)</p>
         </div>
 
         <div id="simulation">
