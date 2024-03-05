@@ -3,7 +3,39 @@ function start_calculation() {
     // loadInput();
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
-    const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
+
+
+
+    /*
+    let get_points = document.getElementById("ignitionPoints").value
+    console.log("get_points " + typeof get_points);
+    console.log("get_points " + get_points);
+    let __stringified_points = JSON.stringify(get_points)
+    console.log("__stringified_points " + typeof __stringified_points);
+    console.log("__stringified_points " + __stringified_points);
+    let __parsed_points = JSON.parse(__stringified_points)
+    console.log("__parsed_points " + typeof __parsed_points);
+    console.log("__parsed_points " + __parsed_points);
+    */
+
+ 
+    let ignition_x = document.getElementById("ignition_x").value
+    let ignition_y = document.getElementById("ignition_y").value
+    let __ignition_string = '{"id":0, "x":'+ignition_x+', "y":'+ignition_y+', "t":0}'
+    console.log("__ignition_string " + __ignition_string);
+    __ignition_stringified = JSON.parse(__ignition_string)
+    console.log("_stringified " + __ignition_stringified);
+    console.log("_stringified " + JSON.stringify(__ignition_stringified));
+
+
+
+    const inital_ignition = __parsed_points // [].push(__parsed_points) // = JSON.parse(document.getElementById("ignitionPoints").value) // list as array
+    console.log(typeof inital_ignition);
+
+    // const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
+
+
+
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
     let final_list_of_burning_cells
@@ -47,7 +79,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                 } else if (cell_exists) {
                     // check if minimum possible arrival time, else overwrite
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
-                    for (let s=0; s<in_list_of_cells.length; s++){
+                    for (let s = 0; s < in_list_of_cells.length; s++) {
                         if (in_list_of_cells[s].x === new_cell.x && in_list_of_cells[s].y === new_cell.y) {
                             if (in_list_of_cells[s].t > new_cell.t) {
                                 in_list_of_cells[s].t = new_cell.t;
