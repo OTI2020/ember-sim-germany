@@ -7,7 +7,7 @@ function start_calculation() {
 
     let ignition_x = document.getElementById("ignition_x").value
     let ignition_y = document.getElementById("ignition_y").value
-    let __ignition_string = '{"id":0, "x":' + ignition_x + ', "y":' + ignition_y + ', "t":0}'
+    let __ignition_string = '[{"id":0, "x":' + ignition_x + ', "y":' + ignition_y + ', "t":0}]'
     // console.log("__ignition_string " + __ignition_string);
     const inital_ignition = JSON.parse(__ignition_string)
     // console.log("_stringified " + __ignition_stringified);
