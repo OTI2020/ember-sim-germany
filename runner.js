@@ -11,8 +11,8 @@ function start_calculation() {
     // console.log("__ignition_string " + __ignition_string);
     const inital_ignition = JSON.parse(__ignition_string)
     // console.log("_stringified " + __ignition_stringified);
-    console.log("input ignition point: " + JSON.stringify(inital_ignition));
-    console.log(typeof inital_ignition);
+    // console.log("input ignition point: " + JSON.stringify(inital_ignition));
+    // console.log(typeof inital_ignition);
     // const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
 
 
