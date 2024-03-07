@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Testing</title>
-    <script src="manage_input_form_options.js"></script>
-    <script src="export_table_as_csv_file.js"></script>
-    <script src="sample_vegetation_grid_for_testing.js"></script>
-    <script src="spread_rate_model.js"></script>
-    <script src="elliptical_propagation_model.js"></script>
-    <script src="runner.js"></script>
+    <link rel="stylesheet" href="../style/table.css">
+    <link rel="stylesheet" href="../style/buttons.css">
+    <link rel="stylesheet" href="../style/formular.css">
+    <script src="../javascript/manage_input_form_options.js"></script>
+    <script src="../javascript/export_table_as_csv_file.js"></script>
+    <script src="../javascript/sample_vegetation_grid_for_testing.js"></script>
+    <script src="../javascript/spread_rate_model.js"></script>
+    <script src="../javascript/elliptical_propagation_model.js"></script>
+    <script src="../javascript/runner.js"></script>
 
 
 </head>
@@ -149,21 +152,6 @@
     <p><button class=button id="export">Export result as CSV</button></p>
 
     <div>
-        <!-- Style -->
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            th,
-            td {
-                border: 1px solid black;
-                padding: 8px;
-                text-align: center;
-            }
-        </style>
-
         <table id="result_table">
             <thead>
                 <tr>
