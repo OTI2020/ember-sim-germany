@@ -8,4 +8,9 @@ td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
+    background-color: rgba(198, 15, 100, 0.354); /* red like ignited */
 }
+/* if no arrivaltime here all cells are green*/
+td:contains("-") {
+    background-color: rgba(14, 153, 116, 0.475);
+  }
