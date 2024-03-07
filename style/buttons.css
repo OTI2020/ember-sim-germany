@@ -1,0 +1,18 @@
+/* Buttons */
+
+.button {
+    background-color: #0073b7;
+    color: #ffffff;
+    border: 1px solid #0073b7;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .button:hover {
+    background-color: #005797;
+  }
+
+  #calc {
+    display: block;
+    margin: 0 auto;
+  }

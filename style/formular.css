@@ -1,0 +1,56 @@
+/* Form container */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    
+    /* border */
+    border: 3px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .form-head {
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+  
+  /* Form element */
+  
+  .form-element {
+    margin-bottom: 10px;
+
+    /* border */
+    border: 3px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;  }
+  
+  /* Label */
+  
+  .form-element label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Input and textarea /
+  
+  .form-element input,
+  .form-element textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }*/
+  
+  /* Media queries for responsive layout */
+  
+  @media (max-width: 768px) {
+    .form-container {
+      max-width: 300px;
+    }
+  }
