@@ -3,7 +3,20 @@ function start_calculation() {
     // loadInput();
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
-    const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
+
+
+    let ignition_x = document.getElementById("ignition_x").value
+    let ignition_y = document.getElementById("ignition_y").value
+    let __ignition_string = '[{"id":0, "x":' + ignition_x + ', "y":' + ignition_y + ', "t":0}]'
+    // console.log("__ignition_string " + __ignition_string);
+    const inital_ignition = JSON.parse(__ignition_string)
+    // console.log("_stringified " + __ignition_stringified);
+    // console.log("input ignition point: " + JSON.stringify(inital_ignition));
+    // console.log(typeof inital_ignition);
+    // const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
+
+
+
     const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
     // time_steps(steps, arrivaltime_test, inital_ignition)
     let final_list_of_burning_cells
@@ -29,7 +42,7 @@ function add_neighbours_to_list(in_list_of_cells) {
     for (let i = new_cells_index; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
-                let new_cell = { id: null, x: null, y: null, t: null }
+                let new_cell = { "id": null, "x": null, "y": null, "t": null }
                 new_cell.x = in_list_of_cells[i].x + j
                 new_cell.y = in_list_of_cells[i].y + k
 
@@ -47,7 +60,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                 } else if (cell_exists) {
                     // check if minimum possible arrival time, else overwrite
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null)
-                    for (let s=0; s<in_list_of_cells.length; s++){
+                    for (let s = 0; s < in_list_of_cells.length; s++) {
                         if (in_list_of_cells[s].x === new_cell.x && in_list_of_cells[s].y === new_cell.y) {
                             if (in_list_of_cells[s].t > new_cell.t) {
                                 in_list_of_cells[s].t = new_cell.t;
