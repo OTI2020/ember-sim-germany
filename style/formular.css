@@ -3,11 +3,13 @@
 .form-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     width: 100%;
     max-width: 400px;
     margin: 20px auto;
+    
+    /* border */
     border: 3px solid #ccc;
     padding: 20px;
     border-radius: 8px;
@@ -17,8 +19,11 @@
   
   .form-element {
     margin-bottom: 10px;
-    border: 1px solid black;
-  }
+
+    /* border */
+    border: 3px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;  }
   
   /* Label */
   
@@ -27,7 +32,7 @@
     margin-bottom: 5px;
   }
   
-  /* Input and textarea */
+  /* Input and textarea /
   
   .form-element input,
   .form-element textarea {
@@ -35,7 +40,7 @@
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
+  }*/
   
   /* Media queries for responsive layout */
   
