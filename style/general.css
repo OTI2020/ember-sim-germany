@@ -1,11 +1,16 @@
-.h1 {
-    color: #3b0404;
+.h1,h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.h1,h2, h2b {
+    color: #4f0a0a;
 }
 
-.h2 {
-    color: #831313;
-}
-
-.p {
-    color: #3b0404;
+.ref {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
