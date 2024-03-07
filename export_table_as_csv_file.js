@@ -36,6 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
   exportBtn.addEventListener('click', function() {
     const csv = toCsv(table);
 
-    download(csv, 'download.csv');
+    download(csv, 'result_grid_contains_arrival_times.csv');
   });
 });
