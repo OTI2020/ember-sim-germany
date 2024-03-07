@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Testing</title>
     <script src="manage_input_form_options.js"></script>
+    <script src="export_table_as_csv_file.js"></script>
     <script src="sample_vegetation_grid_for_testing.js"></script>
     <script src="spread_rate_model.js"></script>
     <script src="elliptical_propagation_model.js"></script>
@@ -143,8 +144,10 @@
 
     <p id="space"></p>
 
-    <h2>Testing Grid (10x10)</h2>
-    <p></p>
+    <h3>Testing Grid (10x10)</h3>
+    <p>Download grid as table in csv format:</p>
+    <p><button class=button id="export">Export result as CSV</button></p>
+
     <div>
         <!-- Style -->
         <style>
@@ -161,7 +164,7 @@
             }
         </style>
 
-        <table>
+        <table id="result_table">
             <thead>
                 <tr>
                     <th>y\x</th>
@@ -308,7 +311,6 @@
                 <td id="x9y9">-</td>
             </tr>
     </div>
-
 </body>
 
 </html>
