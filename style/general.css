@@ -1,11 +1,13 @@
-.h1,h2 {
+.h1,
+h2 {
+    color: #4f0a0a;
+}
+
+.h1 {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
-.h1,h2, h2b {
-    color: #4f0a0a;
+    align-items: center
 }
 
 .ref {
@@ -13,4 +15,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+body {
+    background-color: rgba(239, 217, 153, 0.089);
 }
