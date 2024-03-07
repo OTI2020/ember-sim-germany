@@ -8,12 +8,14 @@
     width: 100%;
     max-width: 400px;
     margin: 20px auto;
+    border: 1px solid black;
   }
   
   /* Form element */
   
   .form-element {
     margin-bottom: 10px;
+    border: 1px solid black;
   }
   
   /* Label */
@@ -31,18 +33,6 @@
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  /* Button */
-  
-  .form-element button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #0073b7;
-    color: #ffffff;
-    border: 1px solid #0073b7;
-    border-radius: 4px;
-    cursor: pointer;
   }
   
   /* Media queries for responsive layout */
