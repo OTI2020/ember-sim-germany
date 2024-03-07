@@ -25,8 +25,8 @@
 
     <h2>Fire Simulation Parameters</h2>
 
-    <form id="simulationForm">
-        <div id="selectVegetation">
+    <form class="form-container" id="simulationForm">
+        <div class="form-element" id="selectVegetation">
             <!-- Vegetation Parameters -->
             <h3>Vegetation</h3>
             <label for="vegetationType">Select Vegetation Type:</label>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <div id="elevation">
+        <div class="form-element" id="elevation">
             <!-- Elevation Parameters -->
             <h3>Elevation</h3>
             <label for="elevationType">Select Elevation Type:</label>
@@ -73,7 +73,7 @@
             <p>This parameter option is compleatly ignored in this version (2024-03-01)- simulates flat surface</p>
         </div>
 
-        <div id="wind">
+        <div class="form-element" id="wind">
             <!-- Wind Parameters -->
             <h3>Wind</h3>
             <!-- direction -->
@@ -84,7 +84,7 @@
             <input type="number" id="windSpeed" step="0.01" value="50" required>
         </div>
 
-        <div id="atmosphere">
+        <div class="form-element" id="atmosphere">
             <!-- Atmosphere Parameters -->
             <h3>Atmosphere</h3>
             <!-- temperature -->
@@ -95,7 +95,7 @@
             <input type="number" id="relativeHumidity" value="50" required>
         </div>
 
-        <div id="rain">
+        <div class="form-element" id="rain">
             <!-- Rain Parameters -->
             <h3>Rain</h3>
             <label for="precipitation">Precipitation (mm):</label>
@@ -105,7 +105,7 @@
             <input type="number" id="daysSinceRain" value="14" required>
         </div>
 
-        <div id="ignition">
+        <div class="form-element" id="ignition">
             <!-- Ignition Point(s) Parameters -->
             <h3>Ignition Points</h3>
             <!-- later in the map, but here is dummy data -->
@@ -125,7 +125,7 @@
             <p>vision: lat,lng,x,y</p>
         </div>
 
-        <div id="simulation">
+        <div class="form-element" id="simulation">
             <!-- Simulation Parameters -->
             <h3>Simulation</h3>
             <label for="simulationSteps">Configure Simulation Steps (at least 1):</label>
@@ -134,170 +134,172 @@
             <!-- propagation models could be selected automaticly in dependency to selected type of vegetation-->
         </div>
 
-        <div id="properties">
+        <div class="form-element" id="properties">
             <!-- Properties -->
             <h3>Properties</h3>
             <p>not directly editable ??</p>
         </div>
+
+
+        <!-- Submit Button -->
+        <button class="button" onclick="start_calculation()">Start calculation with dummy Data</button>
     </form>
 
 
-    <!-- Submit Button -->
-    <button class="button" onclick="start_calculation()">Start calculation with dummy Data</button>
+
 
     <p id="space"></p>
 
-    <h2>Testing Grid (10x10)</h3>
-    <p>Download grid as table in csv format:</p>
-    <p><button class=button id="export">Export result as CSV</button></p>
-
     <div>
-        <table id="result_table">
-            <thead>
+        <h2>Testing Grid (10x10)</h3>
+            <p>Download grid as table in csv format:</p>
+            <p><button class=button id="export">Export result as CSV</button></p>
+            <table id="result_table">
+                <thead>
+                    <tr>
+                        <th>y\x</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                    </tr>
+                </thead>
                 <tr>
-                    <th>y\x</th>
                     <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                    <th>9</th>
+                    <td id="x0y0">-</td>
+                    <td id="x1y0">-</td>
+                    <td id="x2y0">-</td>
+                    <td id="x3y0">-</td>
+                    <td id="x4y0">-</td>
+                    <td id="x5y0">-</td>
+                    <td id="x6y0">-</td>
+                    <td id="x7y0">-</td>
+                    <td id="x8y0">-</td>
+                    <td id="x9y0">-</td>
                 </tr>
-            </thead>
-            <tr>
-                <th>0</th>
-                <td id="x0y0">-</td>
-                <td id="x1y0">-</td>
-                <td id="x2y0">-</td>
-                <td id="x3y0">-</td>
-                <td id="x4y0">-</td>
-                <td id="x5y0">-</td>
-                <td id="x6y0">-</td>
-                <td id="x7y0">-</td>
-                <td id="x8y0">-</td>
-                <td id="x9y0">-</td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td id="x0y1">-</td>
-                <td id="x1y1">-</td>
-                <td id="x2y1">-</td>
-                <td id="x3y1">-</td>
-                <td id="x4y1">-</td>
-                <td id="x5y1">-</td>
-                <td id="x6y1">-</td>
-                <td id="x7y1">-</td>
-                <td id="x8y1">-</td>
-                <td id="x9y1">-</td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td id="x0y2">-</td>
-                <td id="x1y2">-</td>
-                <td id="x2y2">-</td>
-                <td id="x3y2">-</td>
-                <td id="x4y2">-</td>
-                <td id="x5y2">-</td>
-                <td id="x6y2">-</td>
-                <td id="x7y2">-</td>
-                <td id="x8y2">-</td>
-                <td id="x9y2">-</td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td id="x0y3">-</td>
-                <td id="x1y3">-</td>
-                <td id="x2y3">-</td>
-                <td id="x3y3">-</td>
-                <td id="x4y3">-</td>
-                <td id="x5y3">-</td>
-                <td id="x6y3">-</td>
-                <td id="x7y3">-</td>
-                <td id="x8y3">-</td>
-                <td id="x9y3">-</td>
-            </tr>
-            <tr>
-                <th>4</th>
-                <td id="x0y4">-</td>
-                <td id="x1y4">-</td>
-                <td id="x2y4">-</td>
-                <td id="x3y4">-</td>
-                <td id="x4y4">-</td>
-                <td id="x5y4">-</td>
-                <td id="x6y4">-</td>
-                <td id="x7y4">-</td>
-                <td id="x8y4">-</td>
-                <td id="x9y4">-</td>
-            </tr>
-            <tr>
-                <th>5</th>
-                <td id="x0y5">-</td>
-                <td id="x1y5">-</td>
-                <td id="x2y5">-</td>
-                <td id="x3y5">-</td>
-                <td id="x4y5">-</td>
-                <td id="x5y5">-</td>
-                <td id="x6y5">-</td>
-                <td id="x7y5">-</td>
-                <td id="x8y5">-</td>
-                <td id="x9y5">-</td>
-            </tr>
-            <tr>
-                <th>6</th>
-                <td id="x0y6">-</td>
-                <td id="x1y6">-</td>
-                <td id="x2y6">-</td>
-                <td id="x3y6">-</td>
-                <td id="x4y6">-</td>
-                <td id="x5y6">-</td>
-                <td id="x6y6">-</td>
-                <td id="x7y6">-</td>
-                <td id="x8y6">-</td>
-                <td id="x9y6">-</td>
-            </tr>
-            <tr>
-                <th>7</th>
-                <td id="x0y7">-</td>
-                <td id="x1y7">-</td>
-                <td id="x2y7">-</td>
-                <td id="x3y7">-</td>
-                <td id="x4y7">-</td>
-                <td id="x5y7">-</td>
-                <td id="x6y7">-</td>
-                <td id="x7y7">-</td>
-                <td id="x8y7">-</td>
-                <td id="x9y7">-</td>
-            </tr>
-            <tr>
-                <th>8</th>
-                <td id="x0y8">-</td>
-                <td id="x1y8">-</td>
-                <td id="x2y8">-</td>
-                <td id="x3y8">-</td>
-                <td id="x4y8">-</td>
-                <td id="x5y8">-</td>
-                <td id="x6y8">-</td>
-                <td id="x7y8">-</td>
-                <td id="x8y8">-</td>
-                <td id="x9y8">-</td>
-            </tr>
-            <tr>
-                <th>9</th>
-                <td id="x0y9">-</td>
-                <td id="x1y9">-</td>
-                <td id="x2y9">-</td>
-                <td id="x3y9">-</td>
-                <td id="x4y9">-</td>
-                <td id="x5y9">-</td>
-                <td id="x6y9">-</td>
-                <td id="x7y9">-</td>
-                <td id="x8y9">-</td>
-                <td id="x9y9">-</td>
-            </tr>
+                <tr>
+                    <th>1</th>
+                    <td id="x0y1">-</td>
+                    <td id="x1y1">-</td>
+                    <td id="x2y1">-</td>
+                    <td id="x3y1">-</td>
+                    <td id="x4y1">-</td>
+                    <td id="x5y1">-</td>
+                    <td id="x6y1">-</td>
+                    <td id="x7y1">-</td>
+                    <td id="x8y1">-</td>
+                    <td id="x9y1">-</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td id="x0y2">-</td>
+                    <td id="x1y2">-</td>
+                    <td id="x2y2">-</td>
+                    <td id="x3y2">-</td>
+                    <td id="x4y2">-</td>
+                    <td id="x5y2">-</td>
+                    <td id="x6y2">-</td>
+                    <td id="x7y2">-</td>
+                    <td id="x8y2">-</td>
+                    <td id="x9y2">-</td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td id="x0y3">-</td>
+                    <td id="x1y3">-</td>
+                    <td id="x2y3">-</td>
+                    <td id="x3y3">-</td>
+                    <td id="x4y3">-</td>
+                    <td id="x5y3">-</td>
+                    <td id="x6y3">-</td>
+                    <td id="x7y3">-</td>
+                    <td id="x8y3">-</td>
+                    <td id="x9y3">-</td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td id="x0y4">-</td>
+                    <td id="x1y4">-</td>
+                    <td id="x2y4">-</td>
+                    <td id="x3y4">-</td>
+                    <td id="x4y4">-</td>
+                    <td id="x5y4">-</td>
+                    <td id="x6y4">-</td>
+                    <td id="x7y4">-</td>
+                    <td id="x8y4">-</td>
+                    <td id="x9y4">-</td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td id="x0y5">-</td>
+                    <td id="x1y5">-</td>
+                    <td id="x2y5">-</td>
+                    <td id="x3y5">-</td>
+                    <td id="x4y5">-</td>
+                    <td id="x5y5">-</td>
+                    <td id="x6y5">-</td>
+                    <td id="x7y5">-</td>
+                    <td id="x8y5">-</td>
+                    <td id="x9y5">-</td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td id="x0y6">-</td>
+                    <td id="x1y6">-</td>
+                    <td id="x2y6">-</td>
+                    <td id="x3y6">-</td>
+                    <td id="x4y6">-</td>
+                    <td id="x5y6">-</td>
+                    <td id="x6y6">-</td>
+                    <td id="x7y6">-</td>
+                    <td id="x8y6">-</td>
+                    <td id="x9y6">-</td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td id="x0y7">-</td>
+                    <td id="x1y7">-</td>
+                    <td id="x2y7">-</td>
+                    <td id="x3y7">-</td>
+                    <td id="x4y7">-</td>
+                    <td id="x5y7">-</td>
+                    <td id="x6y7">-</td>
+                    <td id="x7y7">-</td>
+                    <td id="x8y7">-</td>
+                    <td id="x9y7">-</td>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td id="x0y8">-</td>
+                    <td id="x1y8">-</td>
+                    <td id="x2y8">-</td>
+                    <td id="x3y8">-</td>
+                    <td id="x4y8">-</td>
+                    <td id="x5y8">-</td>
+                    <td id="x6y8">-</td>
+                    <td id="x7y8">-</td>
+                    <td id="x8y8">-</td>
+                    <td id="x9y8">-</td>
+                </tr>
+                <tr>
+                    <th>9</th>
+                    <td id="x0y9">-</td>
+                    <td id="x1y9">-</td>
+                    <td id="x2y9">-</td>
+                    <td id="x3y9">-</td>
+                    <td id="x4y9">-</td>
+                    <td id="x5y9">-</td>
+                    <td id="x6y9">-</td>
+                    <td id="x7y9">-</td>
+                    <td id="x8y9">-</td>
+                    <td id="x9y9">-</td>
+                </tr>
     </div>
 </body>
 
