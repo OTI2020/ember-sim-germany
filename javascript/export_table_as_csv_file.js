@@ -1,4 +1,4 @@
-// 2024-03-07 autor: https://www.werner-zenk.de/javascript/html-tabelle_als_csv-datei_exportieren.php
+// 2024-03-07 @autor: https://www.werner-zenk.de/javascript/html-tabelle_als_csv-datei_exportieren.php
 
 document.addEventListener('DOMContentLoaded', function() {
   const table = document.getElementById('result_table');
