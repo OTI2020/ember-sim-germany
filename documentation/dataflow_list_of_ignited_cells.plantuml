@@ -2,11 +2,11 @@
 'skinparam handwritten false
 actor User
 rectangle UI
-rectangle start_calculation
-rectangle cellular_automaton
-rectangle find_latest_time_in_list_of_ignited_cells
-rectangle fill_table
-rectangle add_neighbours_to_list
+usecase start_calculation
+usecase cellular_automaton
+usecase find_latest_time_in_list_of_ignited_cells
+usecase fill_table
+usecase add_neighbours_to_list
 
 Title Dataflow of list of ignited cells
 
