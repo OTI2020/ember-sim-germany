@@ -1,0 +1,22 @@
+@startuml
+'skinparam handwritten false
+actor User
+rectangle UI
+rectangle start_calculation
+rectangle cellular_automaton
+rectangle find_latest_time_in_list_of_ignited_cells
+rectangle fill_table
+rectangle add_neighbours_to_list
+
+Title Dataflow of list of ignited cells
+
+User -up-> "UI"
+"UI" -right-> "start_calculation"
+"start_calculation" -right-> "cellular_automaton"
+"cellular_automaton" --> "find_latest_time_in_list_of_ignited_cells"
+"cellular_automaton" -right-> "add_neighbours_to_list"
+add_neighbours_to_list -left-> cellular_automaton
+"cellular_automaton" -left-> "start_calculation"
+"start_calculation" --> "fill_table"
+ "fill_table" -left-> "UI"
+@enduml
