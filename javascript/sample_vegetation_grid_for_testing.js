@@ -1,5 +1,5 @@
 /**
- * IDEA: a grid that says there is something burnable.
+ * IDEA: a grid that says there is something burnable or not.
  * before my algorithim compleetly ignored, if a cell contains vegetation or not
  * global variable needed in an other file, 
  * that is why I use the window tag
