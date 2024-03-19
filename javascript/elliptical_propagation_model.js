@@ -73,7 +73,7 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
     const xd = xp - x0;
     const yd = yp - y0;
 
-    //TODO #18 - What is the difference between (and the data type of) slope, aspect and elevation
+    //TODO #18 - What is the difference between (and the data type of) slope, aspect and elevation:
 
     // elevation provides vertical information about the terrain, 
     // slope indicates the steepness of the terrain 
