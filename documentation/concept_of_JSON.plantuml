@@ -1,9 +1,9 @@
 @startjson
-Title cell as JSON 
+'Title cell as JSON 
 {
 "id":"Integer", 
-"x":"float",
-"y": "float",
+"x":"Integer",
+"y": "Integer",
 "t": "float"
 }
 @endjson
