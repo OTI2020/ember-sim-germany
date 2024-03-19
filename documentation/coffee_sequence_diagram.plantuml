@@ -1,0 +1,70 @@
+
+@startuml
+title "ModelRunner Ablauf"
+
+participant ModelRunner as MR
+participant Point as P
+participant EllipticalPropagationModel as EPM
+participant SimpleSpreadRateModel as SRM
+
+MR -> P : create
+MR -> P : initialize_grid
+P -> MR : progress("Initialising model")
+P -> MR : progress("Initialising grid")
+
+loop for each point in grid
+    P -> SRM : calculate_spread_rate(t0, t1)
+end
+
+P -> MR : create_empty_list(ignited)
+
+loop while ignited is not empty
+    P -> MR : get_first_point_from_ignited(from_point)
+    P -> MR : all_points_in_neighbourhood_ignited(from_point)
+    alt if all points in neighbourhood are already ignited
+        P -> MR : continue
+    else
+        P -> MR : create_list_of_neighbours(to_points)
+        P -> MR : create_empty_list(to_points_processed)
+
+        loop while to_points is not empty
+            P -> MR : get_first_point_from_to_points(to_point)
+            P -> MR : to_point_was_already_ignited(to_point)
+            alt if to_point was already ignited in a previous timestep
+                P -> MR : continue
+            else
+                P -> EPM : calculate_arrival_time(from_point, to_point, t0, t1)
+                P -> MR : arrival_time < to_point.ignition_time
+                alt if arrival_time < to_point.ignition_time
+                    P -> MR : to_point.ignition_time = arrival_time
+                    P -> MR : arrival_time < t1
+                    alt if arrival_time < t1
+                        P -> MR : add_to_point_to_ignited(to_point)
+                        P -> MR : for each neighbour of to_point
+                            P -> MR : neighbour_is_not_ignited(neighbour)
+                            P -> MR : neighbour_is_not_in_to_points_or_to_points_processed(neighbour)
+                            alt if neighbour is not ignited and not in to_points or to_points_processed
+                                P -> MR : add_neighbour_to_to_points(neighbour)
+                    end
+                end
+            end
+            P -> MR : add_to_point_to_to_points_processed(to_point)
+        end
+
+    end
+end
+
+P -> MR : progress("Step ${t_index} - Simulating burn")
+
+loop for each point in grid
+    P -> MR : point_is_not_ignited(point)
+    alt if point is not ignited
+        P -> MR : continue
+    else
+        P -> MR : simulate_burn(t0, t1)
+    end
+end
+
+MR -> P : advance_time
+P -> MR : progress("Time step ${t_index} for time ${t0} complete")
+@enduml
