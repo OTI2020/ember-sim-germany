@@ -5,7 +5,7 @@
 use for testing plantUML:
 https://www.plantuml.com/plantuml/uml
 '/
-
+Title Sequence Diagram of function calls
 
 User -> UI: click Button
 UI -> start_calculation
@@ -62,11 +62,11 @@ cheney_spread_rate_model <-- UI: fmc response
 calculate_arrival_time <-- cheney_spread_rate_model: returns spread rate
 end
 calculate_arrival_time -> UI: Slope request (in comments)
-calculate_arrival_time -> UI: response is not implemented yet
+calculate_arrival_time <-- UI: response is not yet implemented
 calculate_arrival_time -> UI: Aspect request (in comments)
-calculate_arrival_time -> UI: response is not implemented yet
+calculate_arrival_time <-- UI: response is not yet implemented
 calculate_arrival_time -> UI: Elevation request (in comments)
-calculate_arrival_time -> UI: response is not implemented yet
+calculate_arrival_time <-- UI: response is not yet implemented
 
 
 add_neighbours_to_list <-- calculate_arrival_time: returns arrival_time
