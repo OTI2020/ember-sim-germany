@@ -43,11 +43,7 @@ cheney_spread_rate_model -> UI: parameter request
 cheney_spread_rate_model <-- UI: parameter
 calculate_arrival_time <-- cheney_spread_rate_model: returns spread rate
 end
-calculate_arrival_time -> UI: Slope request (in comments)
-calculate_arrival_time <-- UI: response is not yet implemented
-calculate_arrival_time -> UI: Aspect request (in comments)
-calculate_arrival_time <-- UI: response is not yet implemented
-calculate_arrival_time -> UI: Elevation request (in comments)
+calculate_arrival_time -> UI: Three elevation parameter requests (in comments)
 calculate_arrival_time <-- UI: response is not yet implemented
 
 
