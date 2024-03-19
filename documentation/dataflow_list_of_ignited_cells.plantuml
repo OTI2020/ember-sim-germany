@@ -16,6 +16,14 @@ User -up-> "UI"
 "cellular_automaton" --> "find_latest_time_in_list_of_ignited_cells"
 "cellular_automaton" -right-> "add_neighbours_to_list"
 add_neighbours_to_list -left-> cellular_automaton
+
+'note
+note bottom 
+only single cells flows 
+to the elliptical 
+propagation model
+end note
+
 "cellular_automaton" -left-> "start_calculation"
 "start_calculation" --> "fill_table"
  "fill_table" -left-> "UI"
