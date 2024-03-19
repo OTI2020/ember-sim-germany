@@ -1,0 +1,13 @@
+@startjson
+[json JSON { "id": "0", "x": "5", "y": "2", "t": "0" },
+{ "id": "1", "x": "1", "y": "8", "t": "0" }, {"id":"..."}]
+@endjson
+
+/' 
+Achtung 
+zwei Diagramme in einer Datei!
+'/
+
+@startuml
+json cell_as_JSON { "id": "Integer", "x": "float", "y": "float", "t": "float" }
+@enduml
