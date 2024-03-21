@@ -95,9 +95,9 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
     // after [Alexander 1985]
     const wind_speed = document.getElementById("windSpeed").value; // (from_point.param('WIND', 'speed_2m'));
     const wind_factor = 1.0 + (0.00120 * Math.pow(wind_speed, 2.154));
-    const wind_theta = document.getElementById("windDirection").value // ((from_point.param('WIND', 'angle') * Math.PI) / 180.0) + Math.PI;
+    const wind_theta = (document.getElementById("windDirection").value * Math.PI/180) + Math.PI // ((from_point.param('WIND', 'angle') * Math.PI) / 180.0) + Math.PI;
 
-    // TODO #30 - BUG: there is a clockwise deviation in the calculation - only 0 (wind from North) generates good results. 270 is almost like 0 - there is something wrong
+
 
 
     const tx = terrain_factor * Math.cos(terrain_theta);
