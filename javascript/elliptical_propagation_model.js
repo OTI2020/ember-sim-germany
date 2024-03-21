@@ -124,8 +124,12 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
         theta + Math.PI;
 
     // spread rate is in km/h, we need m/h, says the australian dev 
-    // BUT TODO: #31  in the original Code it was calculated m/min and not m/h
-    let r = (simple_spread_rate_model() * 1000.0) / 60.0; //
+    // but TODO: #31  in the original Code it was calculated m/min and not m/h
+    // TODO: #32 model selection by formular
+    // let r = (simple_spread_rate_model() * 1000.0) / 60.0; //
+    let r = (mcarthur_spread_rate_model() * 1000.0) / 60.0; //
+    // let r = (cheney_spread_rate_model() * 1000.0) / 60.0; //
+
     //let r = 0.5 // TEST data 
 
     // TODO HACK - this is to correct the ellipsis shape for high winds - need to find the problem with the algorithm! // this comment is from Australia
