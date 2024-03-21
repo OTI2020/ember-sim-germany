@@ -123,7 +123,8 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
         // Q2 or Q3
         theta + Math.PI;
 
-    // spread rate is in km/h, we need m/h
+    // spread rate is in km/h, we need m/h, says the australian dev 
+    // BUT TODO: #31  in the original Code it was calculated m/min and not m/h
     let r = (simple_spread_rate_model() * 1000.0) / 60.0; //
     //let r = 0.5 // TEST data 
 
