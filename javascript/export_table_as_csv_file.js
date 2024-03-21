@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
           .map(function(cell) {
             return cell.textContent;
           })
-          .join(',');
+          .join(';');
       })
       .join('\n');
   };
