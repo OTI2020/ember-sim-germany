@@ -1,6 +1,6 @@
 
 /////////////
-// fill table with arrival time for each cell
+// fill each ignited cell of table with arrival time 
 /////////////
 
 // DOM interaction
@@ -19,8 +19,12 @@ function fill_table(in_list) {
 
 
 
+
+
+
 /////////////
 // calculate threshold depending on latest arrival times
+// and coloring ignited cells
 /////////////
 
 function set_color_thresholds(in_list) {
