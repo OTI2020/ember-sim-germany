@@ -9,4 +9,5 @@ td {
     padding: 8px;
     text-align: center;
     background-color: "#A9A9A9";
+    /*TODO #33 - find fitting colorset for colorblind people*/
 }
