@@ -37,11 +37,11 @@ function set_color_thresholds(in_list) {
     const threshold_3 = threshold_5 * 0.6
     const threshold_4 = threshold_5 * 0.8
     const thresholds = [
-        { min: 0, max: threshold_1, color: "#FEDB9B" },
-        { min: threshold_1, max: threshold_2, color: "#FECA64" },
+        { min: 0, max: threshold_1, color: "#B53302" },
+        { min: threshold_1, max: threshold_2, color: "#E97D01" },
         { min: threshold_2, max: threshold_3, color: "#FCAC23" },
-        { min: threshold_3, max: threshold_4, color: "#E97D01" },
-        { min: threshold_4, max: threshold_5 + 1, color: "#B53302" }, // +1 because of rounded values in the table, but not in the list.
+        { min: threshold_3, max: threshold_4, color: "#FECA64" },
+        { min: threshold_4, max: threshold_5 + 1, color: "#FEDB9B" }, // +1 because of rounded values in the table, but not in the list.
     ];
     // console.log(thresholds);
 
