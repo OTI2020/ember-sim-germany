@@ -27,6 +27,7 @@ function set_color_thresholds(in_list) {
     // thresholds for 5 colors
     const threshold_5 = find_latest_time_in_list_of_ignited_cells(in_list) // function in runner.js
 
+    // thresholds are relative to the latest arrival time 
     const threshold_1 = threshold_5 * 0.2
     const threshold_2 = threshold_5 * 0.4
     const threshold_3 = threshold_5 * 0.6
@@ -35,45 +36,35 @@ function set_color_thresholds(in_list) {
         { min: 0, max: threshold_1, color: "red" },
         { min: threshold_1, max: threshold_2, color: "yellow" },
         { min: threshold_2, max: threshold_3, color: "green" },
-        { min: threshold_3, max: threshold_4, color: "green" },
-        { min: threshold_4, max: threshold_5, color: "green" },
+        { min: threshold_3, max: threshold_4, color: "blue" },
+        { min: threshold_4, max: threshold_5, color: "dark-blue" },
     ];
     console.log(thresholds);
 
 
-
+    const table = document.getElementById("result_table");
+    // Call the function to color the table
+    color_cells(table, thresholds);
 }
 
-/*
+
 function color_cells(table, thresholds) {
     // Iterate over all cells in the table
     for (let i = 0; i < table.rows.length; i++) {
-      for (let j = 0; j < table.rows[i].cells.length; j++) {
-        // Get the value of the cell
-        let value = parseFloat(table.rows[i].cells[j].textContent);
-  
-        // Find the matching threshold
-        let threshold = thresholds.find(s => value >= s.min && value <= s.max);
-  
-        // If a threshold was found, color the cell
-        if (threshold) {
-          table.rows[i].cells[j].style.backgroundColor = threshold.color;
+        for (let j = 0; j < table.rows[i].cells.length; j++) {
+            // Get the value of the cell
+            let value = parseFloat(table.rows[i].cells[j].textContent);
+
+            // Find the matching threshold
+            let threshold = thresholds.find(s => value >= s.min && value <= s.max);
+
+            // If a threshold was found, color the cell
+            if (threshold) {
+                table.rows[i].cells[j].style.backgroundColor = threshold.color;
+            }
         }
-      }
     }
-  }
-  
-  // table and thresholds
-  const table = document.getElementById("result_table");
-  const thresholds = [
-    { min: 0, max: 1, color: "red" },
-    { min: 1, max: 2, color: "yellow" },
-    { min: 2, max: 15, color: "green" },
-  ];
-  
-  // Call the function to color the table
-  color_cells(table, thresholds);
-*/
+}
 
 
 
