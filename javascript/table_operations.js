@@ -41,9 +41,9 @@ function set_color_thresholds(in_list) {
         { min: threshold_1, max: threshold_2, color: "#FECA64" },
         { min: threshold_2, max: threshold_3, color: "#FCAC23" },
         { min: threshold_3, max: threshold_4, color: "#E97D01" },
-        { min: threshold_4, max: threshold_5, color: "#B53302" },
+        { min: threshold_4, max: threshold_5 + 1, color: "#B53302" }, // +1 because of rounded values in the table, but not in the list.
     ];
-    console.log(thresholds);
+    // console.log(thresholds);
 
 
     const table = document.getElementById("result_table");
@@ -60,11 +60,11 @@ function color_cells(table, thresholds) {
             let value = parseFloat(table.rows[i].cells[j].textContent);
 
             // Find the matching threshold
-            let threshold = thresholds.find(s => value >= s.min && value <= s.max);
+            let fitting_threshold = thresholds.find(s => value >= s.min && value <= s.max);
 
             // If a threshold was found, color the cell
-            if (threshold) {
-                table.rows[i].cells[j].style.backgroundColor = threshold.color;
+            if (fitting_threshold) {
+                table.rows[i].cells[j].style.backgroundColor = fitting_threshold.color;
             }
         }
     }
