@@ -52,7 +52,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                 if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 49 && new_cell.y >= 0 && new_cell.y <= 49) {
                     id_counter++ // Only new id/cell generated if condition fulfilled 
                     new_cell.id = id_counter
-                    new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
+                    new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], true) //test data for elevation?
                     // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
                     // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                     in_list_of_cells.push(new_cell)
