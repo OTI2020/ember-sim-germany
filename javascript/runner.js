@@ -49,7 +49,7 @@ function add_neighbours_to_list(in_list_of_cells) {
                 // check if the cell is out of border or coordinates are already in the list
                 let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
                 // console.log("cell_exists = " + cell_exists);
-                if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 9 && new_cell.y >= 0 && new_cell.y <= 9) {
+                if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 49 && new_cell.y >= 0 && new_cell.y <= 49) {
                     id_counter++ // Only new id/cell generated if condition fulfilled 
                     new_cell.id = id_counter
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], null) //test data for elevation?
