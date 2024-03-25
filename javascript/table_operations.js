@@ -39,10 +39,10 @@ function set_color_thresholds(in_list) {
     // using golden ratio:
     // φ = (1 + √5) / 2 ≈ 1.618
     const PHI = (1 + Math.sqrt(5)) / 2;
-    const threshold_1 = threshold_5 / PHI;
-    const threshold_2 = threshold_1 * PHI;
-    const threshold_3 = threshold_2 * PHI;
-    const threshold_4 = threshold_3 * PHI;
+    const threshold_4 = threshold_5 - (threshold_5 / PHI);
+    const threshold_3 = threshold_4 - (threshold_4 / PHI);
+    const threshold_2 = threshold_3 - (threshold_3 / PHI);
+    const threshold_1 = threshold_2 - (threshold_2 / PHI);
 
     const thresholds = [
         { min: 0, max: 0, color: "#FF0033" }, // this is to highlight ignition points
