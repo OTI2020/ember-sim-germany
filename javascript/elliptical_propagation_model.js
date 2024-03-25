@@ -83,7 +83,7 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
     const slope = flat === true ? 0 : from_point.param('SLOPE'); // in degrees
     if (slope == null) { return; }
 */
-    const slope = 1 // test data //TODO #18
+    const slope = 0 // test data //TODO #18
 
     // TODO: use a better approximation for slope - there's some empirical exp() stuff somewhere
     const terrain_factor = (2.0 * slope) / 10.0; // based on firefighter's mannual - spread rate doubles for every 10 degrees of slope
