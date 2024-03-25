@@ -1,0 +1,52 @@
+@startuml
+class vegetation_model {
+    + arrival_time: float
+    - get_parameters()
+}
+class eucalypt_model {
+    - get_eucalypt_parameters()
+}
+class mixed_forest_model {
+    - get_mixed_forest_parameters()
+}
+class conifer_model {
+    - get_conifer_parameters()
+}
+class grassland_model {
+    - get_grassland_parameters()
+}
+/'
+class shrubland_model {
+    - get_shrubland_parameters()
+}
+class cereals_model {
+    - get_cereals_parameters()
+}
+class corn_model {
+    - get_corn_parameters()
+}
+'/
+
+vegetation_model <|-- eucalypt_model : extends
+vegetation_model <|-- mixed_forest_model : extends
+vegetation_model <|-- conifer_model : extends
+vegetation_model <|-- grassland_model : extends
+/'
+vegetation_model <|-- shrubland_model : extends
+vegetation_model <|-- cereals_model : extends
+vegetation_model <|-- corn_model : extends
+'/
+
+/'
+cereals_model -[hidden]->corn_model
+cereals_model -[hidden]->shrubland_model
+cereals_model -[hidden]->grassland_model
+shrubland_model -[hidden]-> corn_model
+shrubland_model -[hidden]-> grassland_model
+grassland_model -[hidden]-> corn_model
+
+eucalypt_model -[hidden]->conifer_model
+eucalypt_model -[hidden]->mixed_forest_model
+'mixed_forest_model -[hidden]->conifer_model
+'/
+@enduml
