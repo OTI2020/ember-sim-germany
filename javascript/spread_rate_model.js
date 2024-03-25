@@ -23,8 +23,6 @@ function simple_spread_rate_model() {
 
 }
 
-// TODO #21 - add models: CheneySpreadRateModel and McArthurSpreadRateModel
-
 
 
 // Same spread_rate for the whole area all the time - MUST change this if you want dynamic parameter input with API from WeatherApp...
