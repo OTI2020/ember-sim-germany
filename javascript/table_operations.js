@@ -14,7 +14,7 @@ function fill_table(in_list) {
             let roundedNumber = Math.round(in_list[i].t * 10000) / 10000
             table_cell.textContent = roundedNumber  // in_list[i].id;
         } catch (error) {
-            console.error(`Fehler in Iteration ${debug_counter}: ${error.message}`);
+            console.error(`Error in Iteration ${debug_counter}: ${error.message}`);
         }
         debug_counter++
     }
@@ -33,14 +33,19 @@ function fill_table(in_list) {
 
 function set_color_thresholds(in_list) {
     // thresholds for 5 colors
-    const threshold_5 = find_latest_time_in_list_of_ignited_cells(in_list) // function in runner.js
+    const threshold_5 = find_latest_time_in_list_of_ignited_cells(in_list) // function in runner.js file
 
     // thresholds are relative to the latest arrival time 
-    const threshold_1 = threshold_5 * 0.2
-    const threshold_2 = threshold_5 * 0.4
-    const threshold_3 = threshold_5 * 0.6
-    const threshold_4 = threshold_5 * 0.8
+    // using golden ratio:
+    // φ = (1 + √5) / 2 ≈ 1.618
+    const PHI = (1 + Math.sqrt(5)) / 2;
+    const threshold_1 = threshold_5 / PHI;
+    const threshold_2 = threshold_1 * PHI;
+    const threshold_3 = threshold_2 * PHI;
+    const threshold_4 = threshold_3 * PHI;
+
     const thresholds = [
+        { min: 0, max: 0, color: "#FF0033" }, // this is to highlight ignition points
         { min: 0, max: threshold_1, color: "#B53302" },
         { min: threshold_1, max: threshold_2, color: "#E97D01" },
         { min: threshold_2, max: threshold_3, color: "#FCAC23" },
