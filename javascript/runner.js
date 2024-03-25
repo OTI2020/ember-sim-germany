@@ -92,16 +92,15 @@ function cellular_automaton(in_inital_ignition) {
 
         const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
 
-        console.log(">  >  >  CHECK latest_time " + latest_time);
+        // console.log(">  >  >  CHECK latest_time " + latest_time);
         if (current_step >= max_steps) {//|| list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
             console.log("> > > TIME IS OVER < < <");
             console.log("latest_time " + latest_time);
-            console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
+            // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
             return list_of_ignited_cells // return breaks recursion
-            break;
         }
         current_step++
-        console.log("current_step " + current_step);
+        // console.log("current_step " + current_step);
         // cache = list_of_ignited_cells.length
         list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
         // current_index = cache - current_index // TODO #19 - improof efficency of cellular automaton algorithm
