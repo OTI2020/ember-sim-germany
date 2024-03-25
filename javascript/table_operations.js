@@ -5,14 +5,18 @@
 
 // DOM interaction
 function fill_table(in_list) {
+    let debug_counter = 0
     for (let i = 0; i < in_list.length; i++) {
-        let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
-        let roundedNumber = Math.round(in_list[i].t * 10000) / 10000
-        table_cell.textContent = roundedNumber  // in_list[i].id;
-        /*
-        let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
-        console.log(test_2);
-        */
+
+        try {
+            // Code, der den Fehler auslösen kann
+            let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
+            let roundedNumber = Math.round(in_list[i].t * 10000) / 10000
+            table_cell.textContent = roundedNumber  // in_list[i].id;
+        } catch (error) {
+            console.error(`Fehler in Iteration ${debug_counter}: ${error.message}`);
+        }
+        debug_counter++
     }
     set_color_thresholds(in_list)
 }
