@@ -1,0 +1,44 @@
+@startuml
+To have a Tree, you have to start with {T and to use + to denote hierarchy.
+Title Stand 20.03.2024
+ @startsalt
+ {
+ {T
+Ember-sim-Germany | Repository
+ + <&folder> documentation
+ ++ <&code> array_ofJSONs | plantuml
+ ++ <&code> coffee_sequence_diagram | plantuml
+ ++ <&code> concept_of_JSON | plantuml
+ ++ <&code> dataflow_list_of_ignited_cells | plantuml
+ ++ <&grid-three-up> input_parameters | xlsx
+ ++ <&code> repository_structure | plantuml
+ ++ <&code> sequence_diagram | plantuml
+ ++ <&code> simple_sequence_diagram | plantuml
+ ++ <&file> Use_of_Class_Point.drawio | pdf
+ ++ <&file> UseCaseDiagram | pdf
+ ++ <&code> vererbung_vegetation | plantuml
+ + <&folder>images
+ ++ <&media-step-forward> headanimation | gif
+ + <&folder>javascript
+ ++ <&code> elliptival_propagation_model | js
+ ++ <&code> export_table_as_csv_file | js
+ ++ <&code> manage_input_from_options | js
+ ++ <&code> runner | js
+ ++ <&code> sample_vegetation_grid_for_testing | js
+ ++ <&code> spread_rate_model | js
+ + <&folder>out\documentation
+ ++ <&image> ... generated from plantuml |png
+ ++ <&image> ... | png
+ ++ <&image> ...
+ + <&folder>style
+ ++ <&code> buttons | css
+ ++ <&code> formular | css
+ ++ <&code> general | css
+ ++ <&code> table | css
+ + <&code> index | html
+ + <&shield> LICENSE
+ + <&info> README | md
+ }
+ }
+ @endsalt
+@enduml
