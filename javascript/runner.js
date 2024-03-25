@@ -240,20 +240,3 @@ function neighbours(point, modelRunner) {
 
 
 
-
-/////////////
-// fill table for testing
-/////////////
-
-// DOM interaction
-function fill_table(in_list) {
-    for (let i = 0; i < in_list.length; i++) {
-        let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
-        let roundedNumber = Math.round(in_list[i].t * 10000) / 10000
-        table_cell.textContent = roundedNumber  // in_list[i].id;
-        /*
-        let test_2 = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`).value
-        console.log(test_2);
-        */
-    }
-}

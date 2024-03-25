@@ -179,7 +179,7 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
     tarrival = tarrival / Math.cos(phi);
     tarrival = from_point.t + tarrival;
 
-    console.log("tarrival: " + tarrival);
+    // console.log("tarrival: " + tarrival);
     return tarrival;
 }
 

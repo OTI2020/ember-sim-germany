@@ -8,5 +8,6 @@ td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
-    background-color: lightgreen; /* red like ignited */
+    background-color: "#A9A9A9";
+    /*TODO #33 - find fitting colorset for colorblind people*/
 }
