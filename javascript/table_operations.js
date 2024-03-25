@@ -11,7 +11,7 @@ function fill_table(in_list) {
         try {
             // Code, der den Fehler auslösen kann
             let table_cell = document.getElementById(`x${in_list[i].x}y${in_list[i].y}`); // uses id of needed cell in the table
-            let roundedNumber = Math.round(in_list[i].t * 10000) / 10000
+            let roundedNumber = Math.round(in_list[i].t * 100) / 100
             table_cell.textContent = roundedNumber  // in_list[i].id;
         } catch (error) {
             console.error(`Error in Iteration ${debug_counter}: ${error.message}`);
