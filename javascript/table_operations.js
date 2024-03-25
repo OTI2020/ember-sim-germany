@@ -45,7 +45,7 @@ function set_color_thresholds(in_list) {
     const threshold_1 = threshold_2 - (threshold_2 / PHI);
 
     const thresholds = [
-        { min: 0, max: 0, color: "#FF0033" }, // this is to highlight ignition points
+        { min: 0, max: 0, color: "#FF0033" }, // this line is to highlight ignition points
         { min: 0, max: threshold_1, color: "#B53302" },
         { min: threshold_1, max: threshold_2, color: "#E97D01" },
         { min: threshold_2, max: threshold_3, color: "#FCAC23" },
