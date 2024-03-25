@@ -50,8 +50,8 @@ function set_color_thresholds(in_list) {
 
 function color_cells(table, thresholds) {
     // Iterate over all cells in the table
-    for (let i = 0; i < table.rows.length; i++) {
-        for (let j = 0; j < table.rows[i].cells.length; j++) {
+    for (let i = 1; i < table.rows.length; i++) {
+        for (let j = 1; j < table.rows[i].cells.length; j++) {
             // Get the value of the cell
             let value = parseFloat(table.rows[i].cells[j].textContent);
 
