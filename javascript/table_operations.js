@@ -33,11 +33,11 @@ function set_color_thresholds(in_list) {
     const threshold_3 = threshold_5 * 0.6
     const threshold_4 = threshold_5 * 0.8
     const thresholds = [
-        { min: 0, max: threshold_1, color: "red" },
-        { min: threshold_1, max: threshold_2, color: "yellow" },
-        { min: threshold_2, max: threshold_3, color: "green" },
-        { min: threshold_3, max: threshold_4, color: "blue" },
-        { min: threshold_4, max: threshold_5, color: "dark-blue" },
+        { min: 0, max: threshold_1, color: "#FEDB9B" },
+        { min: threshold_1, max: threshold_2, color: "#FECA64" },
+        { min: threshold_2, max: threshold_3, color: "#FCAC23" },
+        { min: threshold_3, max: threshold_4, color: "#E97D01" },
+        { min: threshold_4, max: threshold_5, color: "#B53302" },
     ];
     console.log(thresholds);
 
