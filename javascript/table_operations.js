@@ -45,7 +45,6 @@ function set_color_thresholds(in_list) {
     const threshold_1 = threshold_2 - (threshold_2 / PHI);
 
     const thresholds = [
-        { min: 0, max: 0, color: "#FF0033" }, // this line is to highlight ignition points
         { min: 0, max: threshold_1, color: "#B53302" },
         { min: threshold_1, max: threshold_2, color: "#E97D01" },
         { min: threshold_2, max: threshold_3, color: "#FCAC23" },
@@ -63,6 +62,7 @@ function set_color_thresholds(in_list) {
 
 function color_cells(table, thresholds) {
     // Iterate over all cells in the table
+    // without head of table
     for (let i = 1; i < table.rows.length; i++) {
         for (let j = 1; j < table.rows[i].cells.length; j++) {
             // Get the value of the cell
@@ -77,6 +77,21 @@ function color_cells(table, thresholds) {
             }
         }
     }
+
+    // this line is to highlight ignition points
+    // TODO #38 if you have several ignition points: iterate throw array of ignition points
+    try {
+        let ix = document.getElementById("ignition_x").value
+        let iy = document.getElementById("ignition_y").value
+        // shift for table head
+        ix++ 
+        iy++
+        //"Kirschrot"
+        table.rows[ix].cells[iy].style.backgroundColor = "#FF0033"
+    } catch (error) {
+        console.error(`${error.message} +++ test coloring ignition points `);
+    }
+
 }
 
 
