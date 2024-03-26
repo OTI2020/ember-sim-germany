@@ -87,7 +87,7 @@ function color_cells(table, thresholds) {
         ix++ 
         iy++
         //"Kirschrot"
-        table.rows[ix].cells[iy].style.backgroundColor = "#FF0033"
+        table.rows[iy].cells[ix].style.backgroundColor = "#FF0033"
     } catch (error) {
         console.error(`${error.message} +++ test coloring ignition points `);
     }
