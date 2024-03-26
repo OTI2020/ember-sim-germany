@@ -94,6 +94,10 @@ function calculate_arrival_time(from_point, to_point, flat) { // t0, t1, flat) {
 
     // after [Alexander 1985]
     const wind_speed = document.getElementById("windSpeed").value; // (from_point.param('WIND', 'speed_2m'));
+    // propably 1.0 is the base value of the wind chill factor at calm wind
+    // Math.pow calculates the power (potency) of wind_speed with the exponent 2.154
+    // What is 2.154 ? An empirical value derived from observations?
+    // What is 0.00120 ? An empirical value derived from observations?
     const wind_factor = 1.0 + (0.00120 * Math.pow(wind_speed, 2.154));
     const wind_theta = (document.getElementById("windDirection").value * Math.PI/180) + Math.PI // ((from_point.param('WIND', 'angle') * Math.PI) / 180.0) + Math.PI;
 
