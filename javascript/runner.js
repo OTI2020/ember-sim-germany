@@ -1,6 +1,5 @@
 function start_calculation() {
     console.log("load input for parameters")
-    // loadInput();
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
 
@@ -8,25 +7,15 @@ function start_calculation() {
     let ignition_x = document.getElementById("ignition_x").value
     let ignition_y = document.getElementById("ignition_y").value
     let __ignition_string = '[{"id":0, "x":' + ignition_x + ', "y":' + ignition_y + ', "t":0}]'
-    // console.log("__ignition_string " + __ignition_string);
     const inital_ignition = JSON.parse(__ignition_string)
-    // console.log("_stringified " + __ignition_stringified);
-    // console.log("input ignition point: " + JSON.stringify(inital_ignition));
-    // console.log(typeof inital_ignition);
+
     // const inital_ignition = [{ id: 0, x: 5, y: 2, t: 0 }, { id: 1, x: 1, y: 8, t: 0 }]; // TODO: #10 in future the data (x,y,arrivaltime) will come from the input form submission by the user
 
-
-
-    const steps = 5; // TODO: #10 in future the data will come from the input form submission by the user
-    // time_steps(steps, arrivaltime_test, inital_ignition)
+    // TODO: #10 in future the data will come from the input form submission by the user
     let final_list_of_burning_cells
     final_list_of_burning_cells = cellular_automaton(inital_ignition)
-    // console.log(final_list_of_burning_cells);
-    // console.log(JSON.stringify(final_list_of_burning_cells, null, 0));
-
     fill_table(final_list_of_burning_cells) // testing result visual in a table
 
-    // const modelRunner = initModelRunner();
 }
 
 let new_cells_index = 0
@@ -35,10 +24,6 @@ function add_neighbours_to_list(in_list_of_cells) {
     let length_at_this_time = in_list_of_cells.length // the length of the array changes in these loops, so we need this static value for the length at the beginning
     let id_counter = length_at_this_time - 1 // value for id of the last cell in the list
     let new_cells_counter = 0
-    // console.log("new_cells_index " + new_cells_index);
-    // console.log("length_at_this_time " + length_at_this_time);
-    // console.log("id_counter " + id_counter);
-    // console.log("start_index_cache " + new_cells_counter);
     for (let i = new_cells_index; i < length_at_this_time; i++) {
         for (let j = -1; j < 2; j++) {
             for (let k = -1; k < 2; k++) {
@@ -48,13 +33,10 @@ function add_neighbours_to_list(in_list_of_cells) {
 
                 // check if the cell is out of border or coordinates are already in the list
                 let cell_exists = in_list_of_cells.some(cell => cell.x === new_cell.x && cell.y === new_cell.y);
-                // console.log("cell_exists = " + cell_exists);
                 if (!cell_exists && new_cell.x >= 0 && new_cell.x <= 49 && new_cell.y >= 0 && new_cell.y <= 49) {
                     id_counter++ // Only new id/cell generated if condition fulfilled 
                     new_cell.id = id_counter
                     new_cell.t = in_list_of_cells[i].t + calculate_arrival_time(new_cell, in_list_of_cells[i], true) //test data for elevation?
-                    // new_cell.t = in_list_of_cells[i].t + 0.5 //test data for elevation?
-                    // console.log("new cell: " + JSON.stringify(new_cell, null, 1));
                     in_list_of_cells.push(new_cell)
                     new_cells_counter++// new_cells_index++}
                 } else if (cell_exists) {
@@ -87,38 +69,18 @@ function cellular_automaton(in_inital_ignition) {
     let cache = 0;
     let current_step = 0
     while (true) {
-        // const last_cell_index = list_of_ignited_cells.length - 1
-        // const time_last_cell = list_of_ignited_cells[last_cell_index].t
+         const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
 
-        const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
-
-        // console.log(">  >  >  CHECK latest_time " + latest_time);
         if (current_step >= max_steps) {//|| list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
             console.log("> > > TIME IS OVER < < <");
             console.log("latest_time " + latest_time);
-            // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
             return list_of_ignited_cells // return breaks recursion
         }
         current_step++
-        // console.log("current_step " + current_step);
-        // cache = list_of_ignited_cells.length
         list_of_ignited_cells = add_neighbours_to_list(list_of_ignited_cells)
         // current_index = cache - current_index // TODO #19 - improof efficency of cellular automaton algorithm
 
     }
-
-
-
-    // return cellular_automaton(list_of_ignited_cells) // Recursion took place right here
-    /*
-    console.log("x of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].x);
-    console.log("y of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].y);
-    console.log("t of ignided cell "+ 0 + ": " + list_of_ignited_cells[0].t);
-    */
-    // console.log("list_of_ignited_cells: " + JSON.stringify(list_of_ignited_cells, null, 0));
-    // console.log("next recursion step");
-
-    return list_of_ignited_cells // Alternative
 }
 
 
@@ -130,112 +92,5 @@ function find_latest_time_in_list_of_ignited_cells(in_array) {
             latest_time = in_array[i].t;
         }
     }
-
-    // console.log(latest_time);
-
     return latest_time
 }
-
-
-
-/*
-function initModelRunner() {
-    const modelRunner = {
-        spread_rate_model: null,
-        propagation_model: null,
-        burn_model: null,
-        grid: null,
-        t0: 0,
-        t_index: 0,
-
-        parameters: {
-            EXTENTS: { x: 10, y: 10 },
-            RESOLUTION: { x: 1, y: 1, t: 1 },
-            SIMULATION: { steps: 15 },
-            TOPOGRAPHY: { flat: true }
-        }
-    };
-
-    modelRunner.grid = initGrid(modelRunner);
-
-    console.log("Type of modelRunner: " + typeof modelRunner);
-    console.log("modelRunner data: " + modelRunner);
-    return modelRunner;
-}
-
-// grid is an array of arrays of the objects point
-// grid is spatial and represents a 2d map
-function initGrid(modelRunner) {
-    console.log("init grid");
-    const grid = [];
-
-    for (let y = 0; y < modelRunner.parameters.EXTENTS.y; y++) {
-        const row = [];
-        for (let x = 0; x < modelRunner.parameters.EXTENTS.x; x++) {
-            const point = initPoint({ x, y }, { x: x * modelRunner.parameters.RESOLUTION.x, y: y * modelRunner.parameters.RESOLUTION.y, z: 0.0 }, modelRunner);
-            row.push(point);
-        }
-        grid.push(row);
-    }
-
-    console.log("Type of grid: " + typeof grid);
-    console.log("grid data: " + grid);
-    return grid;
-}
-
-function initPoint(index, position, runner) {
-    console.log("init point");
-    return {
-        index,
-        position,
-        runner,
-        ignition_time: Infinity,
-        extinguish_time: Infinity,
-        _param_cache: {},
-
-        is_ignited(t0, t1) {
-            return (this.ignition_time < t1) && (this.extinguish_time >= t1);
-        },
-
-        param(group_name, parameter) {
-            console.log(group_name + " and " + parameter);
-        },
-
-        clean() {
-            this._param_cache = null;
-            this.runner = null;
-        }
-    };
-}
-
-function neighbours(point, modelRunner) {
-    if (point.neighbours) return point.neighbours;
-
-    const neighbour = (x, y) => {
-        if ((x < 0) || (y < 0) || (x >= modelRunner.parameters.EXTENTS.x) || (y >= modelRunner.parameters.EXTENTS.y)) {
-            return null;
-        }
-        return modelRunner.grid[y][x];
-    };
-
-    point.neighbours = [];
-
-    for (let y = -1; y <= 1; y++) {
-        for (let x = -1; x <= 1; x++) {
-            if ((x === 0) && (y === 0)) continue;
-            const n = neighbour(point.index.x + x, point.index.y + y);
-            if (n) point.neighbours.push(n);
-        }
-    }
-    return point.neighbours;
-}
-
-*/
-
-
-
-
-
-
-
-
