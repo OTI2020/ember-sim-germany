@@ -69,7 +69,7 @@ function cellular_automaton(in_inital_ignition) {
     let cache = 0;
     let current_step = 0
     while (true) {
-         const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
+        const latest_time = find_latest_time_in_list_of_ignited_cells(list_of_ignited_cells)
 
         if (current_step >= max_steps) {//|| list_of_ignited_cells.length >= 4) { //5.9) { //TODO #20 - find bug - Why is this always a stackoverflow when max_time is greater than 3 ??
             console.log("> > > TIME IS OVER < < <");
