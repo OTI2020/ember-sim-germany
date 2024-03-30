@@ -1,6 +1,5 @@
 function start_calculation() {
     console.time()
-    console.log("load input for parameters")
     console.log("start calculation");
     const arrivaltime_test = 0.5; // TODO: #11 add function in own file to calculate arrivaltime with the propagation model
 
