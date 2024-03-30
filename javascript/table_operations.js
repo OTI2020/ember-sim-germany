@@ -91,7 +91,7 @@ function color_cells(table, thresholds) {
     } catch (error) {
         console.error(`${error.message} +++ test coloring ignition points `);
     }
-
+    console.timeEnd()
 }
 
 
