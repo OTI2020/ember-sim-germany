@@ -1,5 +1,4 @@
-console.log(document.getElementById("ignition_x").value);
-
+timer()
 function test_run() {
     var start = performance.now();
     start_calculation()
