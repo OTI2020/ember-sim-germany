@@ -29,7 +29,56 @@ Ember-sim-Germany | Repository
  + <&folder>out\documentation
  ++ <&image> ... generated from plantuml |png
  ++ <&image> ... | png
- ++ <&image> ...
+ ++ <&image> ...@startuml
+To have a Tree, you have to start with {T and to use + to denote hierarchy.
+Title Stand 20.03.2024
+ @startsalt
+ {
+ {T
+<b>Dateien Ember-sim-Germany Repository| <b>Dateitypen | <b>im Angang gedruckt
+
+ + <&folder> documentation
+ ++ <&code> array_ofJSONs | plantuml | nein
+ ++ <&code> coffee_sequence_diagram | plantuml | nein
+ ++ <&code> concept_of_JSON | plantuml | nein
+ ++ <&code> dataflow_list_of_ignited_cells | plantuml | nein
+ ++ <&grid-three-up> input_parameters | xlsx | nein
+ ++ <&code> repository_structure | plantuml | nein
+ ++ <&code> sequence_diagram | plantuml | nein
+ ++ <&code> simple_sequence_diagram | plantuml | nein
+ ++ <&file> Use_of_Class_Point.drawio | pdf | nein
+ ++ <&file> UseCaseDiagram | pdf | nein
+ ++ <&code> vererbung_vegetation | plantuml | nein
+
+ + <&folder>images
+ ++ <&media-step-forward> headanimation | gif | nein
+
+ + <&folder>javascript
+ ++ <&code> elliptival_propagation_model | js | ja
+ ++ <&code> export_table_as_csv_file | js | ja
+ ++ <&code> manage_input_from_options | js | ja
+ ++ <&code> runner | js | ja
+ ++ <&code> sample_vegetation_grid_for_testing | js | ja
+ ++ <&code> spread_rate_model | js | ja
+
+ + <&folder>out\documentation
+ ++ <&image> ... (generated from plantuml) |png | nein
+ ++ <&image> ... | png | nein
+ ++ <&image> repository_structure | png | ja
+
+ + <&folder>style
+ ++ <&code> buttons | css | ja
+ ++ <&code> formular | css | ja
+ ++ <&code> general | css | ja
+ ++ <&code> table | css | ja
+
+ + <&code> index | html | ja
+ + <&shield> LICENSE |N.N.| nein
+ + <&info> README | md | nein
+ }
+ }
+ @endsalt
+@enduml
  + <&folder>style
  ++ <&code> buttons | css
  ++ <&code> formular | css
