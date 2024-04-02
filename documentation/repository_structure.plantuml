@@ -55,11 +55,11 @@ Title Stand 20.03.2024
 
  + <&folder>javascript
  ++ <&code> elliptival_propagation_model | js | ja
- ++ <&code> export_table_as_csv_file | js | ja
  ++ <&code> manage_input_from_options | js | ja
  ++ <&code> runner | js | ja
  ++ <&code> sample_vegetation_grid_for_testing | js | ja
  ++ <&code> spread_rate_model | js | ja
+ ++ <&code> table_operations | js | ja
 
  + <&folder>out\documentation
  ++ <&image> ... (generated from plantuml) |png | nein
