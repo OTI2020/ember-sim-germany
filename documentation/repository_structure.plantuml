@@ -55,7 +55,7 @@ Title Stand 20.03.2024
 
  + <&folder>javascript
  ++ <&code> elliptival_propagation_model | js | ja
- ++ <&code> manage_input_from_options | js | ja
+ ++ <&code> manage_input_form_options | js | ja
  ++ <&code> runner | js | ja
  ++ <&code> sample_vegetation_grid_for_testing | js | ja
  ++ <&code> spread_rate_model | js | ja
